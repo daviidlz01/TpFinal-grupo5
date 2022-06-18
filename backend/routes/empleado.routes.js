@@ -1,7 +1,13 @@
 const empleadoCtrl = require('./../controllers/empleado.controller');
 const express = require ('express');
 const { Router } = require('express');
-const routes = express.Router();
+const router = express.Router();
+
+router.post('/crear/',empleadoCtrl.createEmpledo);
+router.get('/legajo/',empleadoCtrl.findLegajo);
+router.get('/participantes/',empleadoCtrl.findParticipante);
+
+
 
 
 
