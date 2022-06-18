@@ -1,6 +1,5 @@
 const reunionCtrl = require('./../controllers/reunion.controller');
 const express = require ('express');
-const { Router } = require('express');
 const router = express.Router();
 
 router.get('/mostrar/',reunionCtrl.getReunion);
@@ -11,4 +10,4 @@ router.put('/editar/:id',reunionCtrl.editReunion);
 
 
 
-module.exports = Router;
+module.exports = router;

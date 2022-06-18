@@ -32,7 +32,7 @@ empleadoCtrl.findLegajo = async (req,res) =>{
 empleadoCtrl.findParticipante = async (req,res) =>{
     try {
         const par = req.query.participante 
-        var fParticipante = await Empleado.find({legajo:par})
+        var fParticipante = await Empleado.find({participante:par})
         res.json(fParticipante)
     }catch (error) {
     console.log(error)

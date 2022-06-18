@@ -1,9 +1,9 @@
-const recursoCtrl = require('./../controllers/recursos.controller');
-const express = require ('express');
-const { Router } = require('express');
+const recursoCtrl = require('./../controllers/recursos.controlles');
+
+const express = require('express');
 const router = express.Router();
  
-router.get('/mostar/',recursoCtrl.getRecursos);
+router.get('/mostrar/',recursoCtrl.getRecursos);
 router.post('/crear/',recursoCtrl.createRecurso);
 router.put('/editar/:id',recursoCtrl.editRecurso);
 
@@ -11,4 +11,4 @@ router.put('/editar/:id',recursoCtrl.editRecurso);
 
 
 
-module.exports = Router;
+module.exports = router;
