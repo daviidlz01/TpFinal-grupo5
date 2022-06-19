@@ -16,6 +16,32 @@ empleadoCtrl.createEmpledo = async (req,res) => {
         })
     }
 }
+empleadoCtrl.findLegajo = async (req,res) =>{
+    try {
+        const leg = req.query.legajo 
+        var fLegajo = await Empleado.find({legajo:leg})
+        res.json(fLegajo)
+    }catch (error) {
+    console.log(error)
+    res.status(400).json({
+        status: '0',
+        msg: "Error al obtener las Legajo"
+    })
+}
+}
+empleadoCtrl.findParticipante = async (req,res) =>{
+    try {
+        const par = req.query.participante 
+        var fParticipante = await Empleado.find({participante:par})
+        res.json(fParticipante)
+    }catch (error) {
+    console.log(error)
+    res.status(400).json({
+        status: '0',
+        msg: "Error al obtener las Participantes"
+    })
+}
+}
 
 
 

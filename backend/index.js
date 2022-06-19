@@ -6,7 +6,9 @@ var app = express();
 app.use(express.json());
 app.use(cors({origin: 'http://localhost:4200'}));
 //Cargamos el modulo de direccionamiento de rutas
-
+app.use('/api/empleado',require('./routes/empleado.routes'));
+app.use('/api/recurso',require('./routes/recursos.routes'));
+app.use('/api/reunion',require('./routes/reunion.routes'));
 //setting
 app.set('port', process.env.PORT || 3000);
 //starting the server
