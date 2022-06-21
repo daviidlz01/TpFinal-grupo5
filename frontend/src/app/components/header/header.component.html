@@ -5,9 +5,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div *ngIf="loginService.userLoggedIn()">
+          <a *ngIf="!loginService.userLoggedIn()" [routerLink]="['login']">Iniciar Sesion</a>
+          <a *ngIf="loginService.userLoggedIn()" [routerLink]="['login']" (click)="logout()">
+            {{loginService.userLogged()}} Cerrar Sesion
+          </a>
+        </div>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" [routerLink]="['login']">Iniciar Sesion</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
