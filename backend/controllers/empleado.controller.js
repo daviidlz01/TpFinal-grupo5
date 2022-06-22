@@ -42,7 +42,21 @@ empleadoCtrl.findParticipante = async (req,res) =>{
     })
 }
 }
-
+empleadoCtrl.deleteEmpleado= async (req, res)=>{
+    try{
+        await empleado.deleteOne({_id: req.params.id});
+        res.json({
+            status: '1',
+            msg: 'Empleado Borrado'
+        })
+    }
+    catch(error){
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error Borrando Empleado'
+        })
+    }
+}
 
 
 
