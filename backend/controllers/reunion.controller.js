@@ -1,10 +1,12 @@
 const Reunion = require('../models/reunion')
 const reunionCtrl = {}
 
-reunionCtrl.getReunion = async (req, res) => {
+reunionCtrl.getReuniones = async (req, res) => {
     var reuniones = await Reunion.find();
     res.json(reuniones);
 }
+
+
 reunionCtrl.createReunion = async (req, res) => {
     var reunion = new Reunion(req.body);
     try {
@@ -39,6 +41,20 @@ reunionCtrl.editReunion = async ( req,res) => {
     }
 }
 
-
+reunionCtrl.deleteReunion = async (req, res)=>{
+    try{
+        await Reunion.deleteOne({_id: req.params.id});
+        res.json({
+            status: '1',
+            msg: 'Reunion Borrada'
+        })
+    }
+    catch(error){
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error Borrando Reunion'
+        })
+    }
+}
 
 module.exports = reunionCtrl

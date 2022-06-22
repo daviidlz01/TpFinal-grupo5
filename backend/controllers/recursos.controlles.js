@@ -39,7 +39,21 @@ recursoCtrl.editRecurso = async ( req,res) => {
     }
 }
 
-
+recursoCtrl.deleteRecurso = async (req, res)=>{
+    try{
+        await Recurso.deleteOne({_id: req.params.id});
+        res.json({
+            status: '1',
+            msg: 'Recurso Borrado'
+        })
+    }
+    catch(error){
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error Borrando Recurso'
+        })
+    }
+}
 
 
 module.exports = recursoCtrl
