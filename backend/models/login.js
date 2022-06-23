@@ -4,7 +4,7 @@ const {Schema}= mongoose;
 const loginSchema = new Schema({
     usuario : {type:String,required:true},
     password : {type:String,required:true},
-    empleado : {type:Schema.type.objectId,ref:empleado,required:true}
+    empleado : {type:Schema.Types.ObjectId,ref:empleado,required:true}
 })
 
 

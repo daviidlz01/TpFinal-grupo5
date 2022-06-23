@@ -58,7 +58,10 @@ empleadoCtrl.deleteEmpleado= async (req, res)=>{
         })
     }
 }
-
+empleadoCtrl.mostrar = async (req,res)=>{
+    var empleados = await Empleado.find();
+    res.json(empleados);
+}
 
 
 

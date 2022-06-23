@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/crear/',empleadoCtrl.createEmpledo);
 router.get('/legajo/',empleadoCtrl.findLegajo);
 router.get('/participantes/',empleadoCtrl.findParticipante);
-
+router.get('/mostrar/',empleadoCtrl.mostrar)
 
 
 
