@@ -45,6 +45,7 @@ empleadoCtrl.findParticipante = async (req,res) =>{
 empleadoCtrl.deleteEmpleado= async (req, res)=>{
     try{
         await empleado.deleteOne({_id: req.params.id});
+        
         res.json({
             status: '1',
             msg: 'Empleado Borrado'
@@ -57,6 +58,8 @@ empleadoCtrl.deleteEmpleado= async (req, res)=>{
         })
     }
 }
+
+
 
 
 

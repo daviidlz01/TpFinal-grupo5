@@ -10,5 +10,4 @@ router.get('/participantes/',empleadoCtrl.findParticipante);
 
 
 
-
 module.exports = router;
