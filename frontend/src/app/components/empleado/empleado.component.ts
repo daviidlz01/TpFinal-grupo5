@@ -17,6 +17,8 @@ export class EmpleadoComponent implements OnInit {
   empleado!:Empleado
   reuniones:Array<Reunion> = []
   empleados:Array<Empleado> = []
+  asistente!: string // deberia ser boolean ?
+  
 // inyectar
   constructor(private empleadoService: EmpleadoService, private router: Router) { }
 
@@ -29,6 +31,17 @@ export class EmpleadoComponent implements OnInit {
       (data: Array<Empleado> ) => {
         Object.assign(this.empleados, data)
         console.log(data)
+      }
+    )
+  }
+// filtrar por asistente a la reunion
+  filtrar(){
+    this.empleadoService.getEmpleado().subscribe(  // (this.asistente) me da error
+      (data: Array<Empleado>) => {
+        this.empleados = []
+        Object.assign(this.empleados, data)
+        console.log(data)
+        
       }
     )
   }
