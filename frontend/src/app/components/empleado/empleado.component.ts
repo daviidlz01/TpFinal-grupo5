@@ -3,6 +3,8 @@ import { Empleado } from 'src/app/models/empleado';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 import { Oficina } from 'src/app/models/oficina';
 import { Recurso } from 'src/app/models/recurso';
+import { Reunion } from 'src/app/models/reunion';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,10 +13,24 @@ import { Recurso } from 'src/app/models/recurso';
   styleUrls: ['./empleado.component.css']
 })
 export class EmpleadoComponent implements OnInit {
-
-  constructor() { }
+  // creacion nuevo objeto y Array
+  empleado!:Empleado
+  reuniones:Array<Reunion> = []
+  empleados:Array<Empleado> = []
+// inyectar
+  constructor(private empleadoService: EmpleadoService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  // metodo mostrar todos los empleados (sin filtro de quienes participan)
+  mostrarTodo(){
+    this.empleadoService.getEmpleado().subscribe(
+      (data: Array<Empleado> ) => {
+        Object.assign(this.empleados, data)
+        console.log(data)
+      }
+    )
   }
 
 }
