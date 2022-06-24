@@ -11,6 +11,8 @@ import { LoginService } from './service/login.service';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { CrearEmpleadoComponent } from './components/crear-empleado/crear-empleado.component';
+import { ReunionComponent } from './components/reunion/reunion.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { CrearEmpleadoComponent } from './components/crear-empleado/crear-emplea
     HeaderComponent,
     HomeComponent,
     CrearEmpleadoComponent,
+    ReunionComponent,
+    FooterComponent,
     
   ],
   imports: [

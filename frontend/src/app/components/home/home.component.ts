@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Notificacion } from 'src/app/models/notificaciones';
 import { NotificacionesService } from 'src/app/service/notificaciones.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -55,4 +56,5 @@ export class HomeComponent implements OnInit {
     
         } 
   }
+
 }

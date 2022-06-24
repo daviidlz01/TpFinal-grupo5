@@ -6,6 +6,7 @@ import { EmpleadoService } from 'src/app/service/empleado.service';
 import { LoginService } from 'src/app/service/login.service';
 import { NotificacionesService } from 'src/app/service/notificaciones.service';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -104,6 +105,7 @@ export class HeaderComponent implements OnInit {
     )
 
   }
+
 
 
 }
