@@ -6,11 +6,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpleadoComponent } from './components/empleado/empleado.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './service/login.service';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { CrearEmpleadoComponent } from './components/crear-empleado/crear-empleado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpleadoComponent,
+    LoginComponent,
+    HeaderComponent,
+    HomeComponent,
+    CrearEmpleadoComponent,
     
   ],
   imports: [
@@ -18,7 +27,7 @@ import { EmpleadoComponent } from './components/empleado/empleado.component';
     AppRoutingModule,FormsModule,HttpClientModule,
     
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,74 @@
+<div class="container" style="color: rgb(255, 255, 255);">
+    <form action="" #formclima="ngForm" class="bg-dark">
+        <div class="mb-3 container">
+            <label for="formGroupExampleInput" class="form-label">nombre</label>
+            <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="empleado.nombre">
+        </div>
+        <div class="mb-3 container">
+            <label for="formGroupExampleInput2" class="form-label">apellido</label>
+            <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="empleado.apellido">
+        </div>
+        <div class="mb-3 container">
+            <label for="formGroupExampleInput" class="form-label">legajo</label>
+            <input type="text" name="legajo" class="form-control" id="legajo" [(ngModel)]="empleado.legajo">
+        </div>
+        <div class="mb-3 container">
+            <label for="formGroupExampleInput2" class="form-label">email</label>
+            <input type="text" name="email" class="form-control" id="email" [(ngModel)]="empleado.email">
+        </div>
+        <div class="mb-3 container">
+            <label for="formGroupExampleInput" class="form-label">dependencia</label>
+            <input type="text" name="dependencia" class="form-control" id="dependencia"[(ngModel)]="empleado.dependencia">
+        </div>
+        <div class="mb-3 container">
+            <label for="formGroupExampleInput2" class="form-label">participante</label>
+            <input type="text" name="participante" class="form-control" id="participante" [(ngModel)]="empleado.participante">
+        </div>
+        <div>
+            <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">leido</legend>
+                      <div class="form-check m-4">
+                        <input class="form-check-input" type="checkbox" id="leido" name="leido" [(ngModel)]="empleado.leido">
+                        <label class="form-check-label" for="gridCheck1">
+                          libro favorito?
+                        </label>
+                    </div>
+          
+          
+              </fieldset>
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="crear()" data-bs-toggle="modal" data-bs-target="#log">consultar clima</button>
+        </div>
+        <div>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#log">prueba</button>
+        </div>
+       
+    </form>
+</div>
+
+
+
+<div class="modal fade" id="log" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="logTitle">crear usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <label for=""class="form-label">Usuario</label>
+            <input type="text" class="form-control"[(ngModel)]="usuario.username">
+            <label for=""class="form-label">Contraseña</label>
+            <input type="text" class="form-control"[(ngModel)]="usuario.password">
+            <select name="empleado" id="empleado"[(ngModel)]="usuario.empleado">
+                <option [ngValue]="empleado">{{empleado.nombre }} {{empleado.apellido }}</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="crearUsuario()" >Save changes</button>
+        </div>
+      </div>
+    </div>
+    
