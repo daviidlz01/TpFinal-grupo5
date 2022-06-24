@@ -19,7 +19,7 @@ export class EmpleadoService {
   private urlBase2 ="http://localhost:3000/api/recursos";
 
   constructor(private _http:HttpClient) { }
-//traigo todas las reuniones
+//traer todas las reuniones
 
   getReunion():Observable<any>{
     const Options ={
@@ -29,6 +29,7 @@ export class EmpleadoService {
     }
     return this._http.get(this.urlBase + "/mostrar",Options)
   }
+// traer todos los recursos
 
   getRecurso():Observable<any>{
     const Options ={
@@ -36,15 +37,17 @@ export class EmpleadoService {
       headers: new HttpHeaders({}),
       params:new HttpParams({})
     }
-    return this._http.get(this.urlBase + "/mostrar",Options)
+    return this._http.get(this.urlBase2 + "/mostrar",Options)
   }
+  //traer todos los participantes
+
   getEmpleado():Observable<any>{
     const Options ={
       method: "GET",
       headers: new HttpHeaders({}),
       params:new HttpParams({})
     }
-    return this._http.get(this.urlBase + "/mostrar",Options)
+    return this._http.get(this.urlBase1 + "/mostrar",Options)
   }
 
 
