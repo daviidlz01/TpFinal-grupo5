@@ -7,7 +7,9 @@ empleadoCtrl.createEmpledo = async (req,res) => {
         await empleado.save();
         res.json({
             'status':'1',
-            'msg':'Empleado creado'
+            'msg':'Empleado creado',
+            _id: empleado._id
+
         })
     } catch(error){
         res.status(400).json({

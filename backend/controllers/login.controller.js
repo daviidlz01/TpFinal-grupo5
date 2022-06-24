@@ -13,7 +13,10 @@ loginCtrl.createLogin = async (req, res) => {
     } catch (error) {
         res.status(400).json({
             'status': '0',
-            'msg': 'login mal creado'
+            'msg': 'login mal creado',
+            'user':login.usuario,
+            'pas':login.password,
+            'emp':login.empleado
         })
     }
 }
@@ -39,6 +42,7 @@ loginCtrl.iniciarLogin = async (req, res) => {
                 'status': '1',
                 'msg': 'inicio correcto',
                 usuario: user.usuario,
+                _id: user.empleado
 
             })
         }

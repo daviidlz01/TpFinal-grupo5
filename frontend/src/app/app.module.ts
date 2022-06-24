@@ -6,19 +6,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpleadoComponent } from './components/empleado/empleado.component';
-import { ReunionComponent } from './components/reunion/reunion.component';
-import { HomeComponent } from './components/home/home.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginService } from './service/login.service';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { CrearEmpleadoComponent } from './components/crear-empleado/crear-empleado.component';
+import { ReunionComponent } from './components/reunion/reunion.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpleadoComponent,
-    ReunionComponent,
-    HomeComponent,
-    FooterComponent,
+    LoginComponent,
     HeaderComponent,
+    HomeComponent,
+    CrearEmpleadoComponent,
+    ReunionComponent,
+    FooterComponent,
     
   ],
   imports: [
@@ -26,7 +31,7 @@ import { HeaderComponent } from './components/header/header.component';
     AppRoutingModule,FormsModule,HttpClientModule,
     
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
