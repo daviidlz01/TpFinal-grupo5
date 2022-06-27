@@ -1,0 +1,28 @@
+nav {
+    background-color: 
+    #ffb142;
+    margin-top: 20px;
+    border-style: solid;
+    border-color: #34ace0;
+    border-radius: 25px;
+}
+a {
+    background-color: #34ace0;
+    color:#fff;
+    border-style: solid;
+    border-color: #34ace0;
+    border-radius: 25px;
+    padding: 10px 10px 10px 10px;
+
+}
+a:hover{
+    color:#ffb142;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 5px;
+}
+button {
+    background-color: #34ace0;
+    border-style: solid;
+    border-color: #fff;
+}

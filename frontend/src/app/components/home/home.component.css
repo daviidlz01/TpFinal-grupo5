@@ -1,0 +1,13 @@
+h1 {
+    color: #ffb142;
+    border-style: solid;
+    border-color:#ffb142;
+    border-radius: 25px;
+    border-width: 10px;
+}
+img {
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #ffb142;
+    border-width: 10px;
+}

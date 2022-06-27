@@ -1,0 +1,14 @@
+h1 {
+    color:#34ace0;
+}
+#principal {
+    border-style: solid;
+    border-color: #34ace0;
+    margin-top: 35px;
+    background-color: #ffb142;
+    border-radius: 20px;
+
+}
+p {
+    color: #fff
+}
