@@ -1,1 +1,179 @@
-<p>reunion works!</p>
+<div id="principal" class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-4">
+    <div class="">
+        <div class="container" style="color: rgb(255, 255, 255);">
+            <br>
+            <h1><strong>R E U N I O N <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#34ace0"
+                        class="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        <path fill-rule="evenodd"
+                            d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                        <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+                    </svg></strong></h1>
+            <br>
+            <hr>
+            <form action="" #formclima="ngForm">
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput" class="form-label"><strong> <svg
+                                xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                class="bi bi-calendar-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> FECHA</strong> </label>
+                    <input type="date" name="bday" />
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput2" class="form-label"><strong> <svg
+                                xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                class="bi bi-clock-history" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
+                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
+                                <path
+                                    d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
+                            </svg>HORA INICIO</strong></label>
+                    <form action="" name="formulario">
+                        <input type="time" name="hora" value="09:00:00" max="20:00:00" min="09:00:00" step="1">
+                        <input type="submit" value="GUARDAR">
+                    </form>
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput" class="form-label"><strong> <svg
+                                xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                class="bi bi-clock-history" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
+                                <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
+                                <path
+                                    d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
+                            </svg> HORA FINALIZACION</strong></label>
+                    <form action="" name="formulario">
+                        <input type="time" name="hora" value="09:00:00" max="20:00:00" min="09:00:00" step="1">
+                        <input type="submit" value="GUARDAR">
+                    </form>
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput2" class="form-label"><strong> <svg
+                                xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path
+                                    d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> ESTADO</strong></label>
+                    <input type="text" name="email" class="form-control" id="email">
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput" class="form-label"><strong><svg
+                                xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                class="bi bi-card-text" viewBox="0 0 16 16">
+                                <path
+                                    d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                <path
+                                    d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z" />
+                            </svg> TIPO</strong></label>
+                    <input type="text" name="dependencia" class="form-control" id="dependencia">
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput2" class="form-label"><strong><svg
+                                xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                class="bi bi-calendar3" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                                <path
+                                    d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                            </svg> CALENDARIO</strong></label>
+                    <input type="date" name="bday" />
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput2" class="form-label"><strong><svg
+                                xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                class="bi bi-building" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z" />
+                                <path
+                                    d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z" />
+                            </svg> OFICINA</strong></label>
+                    
+                    <select name="select">
+                        <option value="value1">OFICINA 1</option>
+                        <option value="value2" selected>OFICINA 2</option>
+                        <option value="value3">OFICINA 3</option>
+                        <option value="value4" selected>OFICINA 4</option>
+                        <option value="value5">OFICINA 5</option>
+                    </select>
+
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput2" class="form-label"><strong><svg
+                                xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                            </svg> RECURSOS</strong></label>
+                            <select name="select">
+                                <option value="value1">SI</option>
+                                <option value="value2" selected>NO</option>
+                                
+                            </select>
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <fieldset class="row mb-3">
+                                <legend class="col-form-label col-sm-2 pt-0">leido</legend>
+                                <div class="form-check m-4">
+                                    <input class="form-check-input" type="checkbox" id="leido" name="leido">
+                                    <label class="form-check-label" for="gridCheck1">
+                                        libro favorito?
+                                    </label>
+                                </div>
+
+
+                            </fieldset>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#log"> <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                    class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
+                                </svg>consultar clima</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#log">prueba</button>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="modal fade" id="log" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="logTitle"><strong>CREAR EMPLEADO</strong></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="" class="form-label"><strong>USUARIO</strong></label>
+                                    <input type="text" class="form-control">
+                                    <label for="" class="form-label"><strong>CONTRASEÑA</strong></label>
+                                    <input type="text" class="form-control">
+                                    <select name="empleado" id="empleado">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal"><strong>CERRAR</strong></button>
+                                    <button type="button" class="btn btn-primary"><strong>GUARDAR</strong></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <br>
