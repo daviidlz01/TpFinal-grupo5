@@ -1,0 +1,19 @@
+#principal {
+    background-color: #ffb142;
+    border-style: solid;
+    border-color: #34ace0;
+    border-width: 5px;
+    border-radius: 25px;
+    background: #FFB142;
+    background: -moz-linear-gradient(left, #FFB142 0%, #FFB142 50%, #fff 100%);
+    background: -webkit-linear-gradient(left, #FFB142 0%, #FFB142 50%, #fff 100%);
+    background: linear-gradient(to right, #FFB142 0%, #FFB142 50%, #fff 100%);
+    
+    }
+
+    input {
+        border-style: solid;
+        border-radius: 25px;
+        border-color: #FFF;
+    }
+    

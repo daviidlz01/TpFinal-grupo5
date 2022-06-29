@@ -1,74 +1,98 @@
-<div class="container" style="color: rgb(255, 255, 255);">
-    <form action="" #formclima="ngForm" class="bg-dark">
-        <div class="mb-3 container">
-            <label for="formGroupExampleInput" class="form-label">nombre</label>
-            <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="empleado.nombre">
+<div id="principal"   class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-4">
+    <div class="">
+        <div class="container" style="color: rgb(255, 255, 255);">
+            <br>
+            <h1><strong>E M P L E A D O S </strong></h1>
+            <form action="" #formclima="ngForm" >
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput" class="form-label"><strong> <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                      </svg> NOMBRE</strong></label>
+                    <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="empleado.nombre">
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput2" class="form-label"><strong>  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+                        <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                      </svg>APELLIDO</strong></label>
+                    <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="empleado.apellido">
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput" class="form-label"><strong> <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0" class="bi bi-book" viewBox="0 0 16 16">
+                        <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                      </svg> LEGAJO</strong></label>
+                    <input type="text" name="legajo" class="form-control" id="legajo" [(ngModel)]="empleado.legajo">
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput2" class="form-label"><strong> <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0" class="bi bi-envelope-open" viewBox="0 0 16 16">
+                        <path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117V7.383Zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2Z"/>
+                      </svg> E-MAIL</strong></label>
+                    <input type="text" name="email" class="form-control" id="email" [(ngModel)]="empleado.email">
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput" class="form-label"><strong><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0" class="bi bi-building" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                        <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                      </svg>  DEPENDENCIA</strong></label>
+                    <input type="text" name="dependencia" class="form-control" id="dependencia"[(ngModel)]="empleado.dependencia">
+                </div>
+                <div class="mb-3 container">
+                    <label for="formGroupExampleInput2" class="form-label"><strong><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0" class="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                        <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                      </svg>  PARTICIPANTE</strong></label>
+                    <input type="text" name="participante" class="form-control" id="participante" [(ngModel)]="empleado.participante">
+                </div>
+                <div>
+                    <fieldset class="row mb-3">
+                        <legend class="col-form-label col-sm-2 pt-0">leido</legend>
+                              <div class="form-check m-4">
+                                <input class="form-check-input" type="checkbox" id="leido" name="leido" [(ngModel)]="empleado.leido">
+                                <label class="form-check-label" for="gridCheck1">
+                                  libro favorito?
+                                </label>
+                            </div>
+                  
+                  
+                      </fieldset>
+                </div>
+                <div>
+                    <button class="btn btn-primary" (click)="crear()" data-bs-toggle="modal" data-bs-target="#log">  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+                      </svg>consultar clima</button>
+                </div>
+                <div>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#log">prueba</button>
+                </div>
+               
+            </form>
         </div>
-        <div class="mb-3 container">
-            <label for="formGroupExampleInput2" class="form-label">apellido</label>
-            <input type="text" name="apellido" class="form-control" id="apellido" [(ngModel)]="empleado.apellido">
-        </div>
-        <div class="mb-3 container">
-            <label for="formGroupExampleInput" class="form-label">legajo</label>
-            <input type="text" name="legajo" class="form-control" id="legajo" [(ngModel)]="empleado.legajo">
-        </div>
-        <div class="mb-3 container">
-            <label for="formGroupExampleInput2" class="form-label">email</label>
-            <input type="text" name="email" class="form-control" id="email" [(ngModel)]="empleado.email">
-        </div>
-        <div class="mb-3 container">
-            <label for="formGroupExampleInput" class="form-label">dependencia</label>
-            <input type="text" name="dependencia" class="form-control" id="dependencia"[(ngModel)]="empleado.dependencia">
-        </div>
-        <div class="mb-3 container">
-            <label for="formGroupExampleInput2" class="form-label">participante</label>
-            <input type="text" name="participante" class="form-control" id="participante" [(ngModel)]="empleado.participante">
-        </div>
-        <div>
-            <fieldset class="row mb-3">
-                <legend class="col-form-label col-sm-2 pt-0">leido</legend>
-                      <div class="form-check m-4">
-                        <input class="form-check-input" type="checkbox" id="leido" name="leido" [(ngModel)]="empleado.leido">
-                        <label class="form-check-label" for="gridCheck1">
-                          libro favorito?
-                        </label>
-                    </div>
-          
-          
-              </fieldset>
-        </div>
-        <div>
-            <button class="btn btn-primary" (click)="crear()" data-bs-toggle="modal" data-bs-target="#log">consultar clima</button>
-        </div>
-        <div>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#log">prueba</button>
-        </div>
-       
-    </form>
-</div>
-
-
-
-<div class="modal fade" id="log" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="logTitle">crear usuario</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <label for=""class="form-label">Usuario</label>
-            <input type="text" class="form-control"[(ngModel)]="usuario.username">
-            <label for=""class="form-label">Contraseña</label>
-            <input type="text" class="form-control"[(ngModel)]="usuario.password">
-            <select name="empleado" id="empleado"[(ngModel)]="usuario.empleado">
-                <option [ngValue]="empleado">{{empleado.nombre }} {{empleado.apellido }}</option>
-            </select>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="crearUsuario()" >Save changes</button>
-        </div>
-      </div>
+        
+        
+        
+        <div  class="modal fade" id="log" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="logTitle"><strong>CREAR EMPLEADO</strong></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for=""class="form-label"><strong>USUARIO</strong></label>
+                    <input type="text" class="form-control"[(ngModel)]="usuario.username">
+                    <label for=""class="form-label"><strong>CONTRASEÑA</strong></label>
+                    <input type="text" class="form-control"[(ngModel)]="usuario.password">
+                    <select name="empleado" id="empleado"[(ngModel)]="usuario.empleado">
+                        <option [ngValue]="empleado">{{empleado.nombre }} {{empleado.apellido }}</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><strong>CERRAR</strong></button>
+                  <button type="button" class="btn btn-primary" (click)="crearUsuario()" ><strong>GUARDAR</strong></button>
+                </div>
+              </div>
+            </div>
+            
     </div>
-    
+</div>
