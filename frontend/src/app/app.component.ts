@@ -8,3 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontend';
 }
+export class QRCodeComponent {
+  public myAngularxQrCode: string = "";
+  constructor () {
+    // assign a value
+    this.myAngularxQrCode = '';
+  }
+}

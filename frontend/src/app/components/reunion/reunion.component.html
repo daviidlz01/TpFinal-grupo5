@@ -118,7 +118,7 @@
                 </div>
                 <div>
                     <div>
-                        <div>
+                        <!-- <div>
                             <fieldset class="row mb-3">
                                 <legend class="col-form-label col-sm-2 pt-0">leido</legend>
                                 <div class="form-check m-4">
@@ -130,21 +130,24 @@
 
 
                             </fieldset>
-                        </div>
-                        <div>
+                        </div> -->
+                        <br>
+                        <br>
+                        <hr>
+                        <div class="offset-4">
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#log"> <svg
-                                    xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
+                                    xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff"
                                     class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
                                     <path
                                         d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
-                                </svg>consultar clima</button>
+                                </svg><strong> &nbsp; GUARDAR</strong></button>
                         </div>
-                        <div>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#log">prueba</button>
-                        </div>
+                       
+                        
 
 
                     </div>
+                    <hr>
 
 
 
@@ -173,7 +176,58 @@
                             </div>
                         </div>
 
+                        
+
                     </div>
                 </div>
+                
+
+                <table class="table caption-top">
+                    <caption class="text-white"><strong>LISTA DE REUNIONES</strong></caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">1</th>
+                            <th scope="col">2</th>
+                            <th scope="col">3</th>
+                            <th scope="col">4</th>
+                            <th scope="col">5</th>
+                            <th scope="col">6</th>
+                            <th scope="col">7</th>
+                            <th scope="col">8</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let reu of reuniones">
+                            <td>{{reu.fecha}}</td>
+                            <td>{{reu.horaInicio}}</td>
+                            <td>{{reu.horaFin}}</td>        
+                            <td>{{reu.estado}}</td>
+                            <td>{{reu.tipoReunion}}</td>
+                            <td>{{reu.calendario}}</td>
+                            <td>{{reu.oficina}}</td>
+                            <td>{{reu.recursos}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary"></button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-8 offset-4">
+                    <button class="btn btn-primary" (click)="imprimir()">  <svg
+                        xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#fff"
+                        class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z" />
+                    </svg> &nbsp;IMPRIMIR</button>
+
+                </div>
+                <br>
+                <hr>
+
+
+                <qrcode  [qrdata]= "'prueba de reunion'" [width]="124" [errorCorrectionLevel]="'M'"></qrcode>
+                
+                
                 <br>
                 <br>
