@@ -8,16 +8,12 @@ import { ReunionComponent } from './components/reunion/reunion.component';
 import { Empleado } from './models/empleado';
 const routes: Routes = [
   {path:'home', component:HomeComponent},
+  {path:'login',component:LoginComponent},
+  {path:'empC',component:CrearEmpleadoComponent},
   {path: 'empleado', component: EmpleadoComponent},
   {path: 'reunion', component: ReunionComponent},
   {path:'**', pathMatch:'full', redirectTo:'home'},
   
-  
-  //pruebas
-  {path:'login',component:LoginComponent},
-  {path:'home',component:HomeComponent},
-  {path:'empC',component:CrearEmpleadoComponent},
-  {path: 'empleado', component:EmpleadoComponent}
 ];
 
 @NgModule({
