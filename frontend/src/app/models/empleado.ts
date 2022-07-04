@@ -5,6 +5,5 @@ export class Empleado {
     legajo!:string;
     email!:string;
     dependencia!:string;
-    participante!:string;
     leido!:boolean
 }

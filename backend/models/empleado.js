@@ -8,8 +8,7 @@ const empleadoSchema = new Schema({
     email :  {type:String,required:true},
     dependencia :  {type:String,required:true},//puede ser otra clase 
     legajo :  {type:String,required:true},
-    participante :  {type:String,required:false}, //puede ser otra clase
-    leido: {type:Boolean,required:true},
+    leido: {type:Boolean,required:true}
 
 
 })
