@@ -12,7 +12,10 @@ a {
     border-style: solid;
     border-color: #34ace0;
     border-radius: 25px;
-    padding: 10px 10px 10px 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 
 }
 a:hover{

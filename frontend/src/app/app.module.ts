@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CrearEmpleadoComponent } from './components/crear-empleado/crear-empleado.component';
 import { ReunionComponent } from './components/reunion/reunion.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CrearEmpleadoComponent,
     ReunionComponent,
     FooterComponent,
+    CalendarComponent,
     
   ],
   imports: [

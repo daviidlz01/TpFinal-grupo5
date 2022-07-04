@@ -23,7 +23,7 @@ export class ReunionComponent implements OnInit {
   ngOnInit(): void {
   }
   imprimir(){
-    let reunionesPrint:Array<any> = this.procesarListado(this.reuniones);
+    let  reunionesPrint:Array<any> = this.procesarListado(this.reuniones);
     printJS({printable: this.reuniones, properties: ['fecha', 'horaInicio', 'horaFin', 'estado', 'tipoReunion',
   'calendario', 'oficina', 'recursos'], type:
     'json'})

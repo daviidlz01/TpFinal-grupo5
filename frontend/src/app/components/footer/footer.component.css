@@ -1,9 +1,36 @@
-footer {
-    background-color: #ffb142;
+body { 
+	font-family: monospace; 
+	background:#ffb142;
+   
+}
+.contenedor {
+	margin: auto;
+	display: table;
+    
+}
+
+h1 { 
+	position: relative; 
+	float: left;
+	background:#ffb142;
+	color: #fff;
+	font-size: 2.5em;
     border-style: solid;
-    border-color:#34ace0;
-    border-radius: 25px;
+    border-radius: 25px 25px 25px 25 px;
+    border-color: #34ace0;
 }
-p {
-    color:#fff
+
+h1 span {
+    position:absolute;
+    right:0;
+    width:0;
+    background:#ffb142;
+    border-left: 1px solid #000;
+    animation: escribir 5s steps(30) infinite alternate;
 }
+
+@keyframes escribir {
+    from { width: 100% }
+    to { width:0 }
+}
+

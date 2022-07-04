@@ -6,7 +6,7 @@ import { Recurso } from 'src/app/models/recurso';
 import { Reunion } from 'src/app/models/reunion';
 import { Router } from '@angular/router';
 import { ReunionService } from 'src/app/services/reunion.service';
-
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-empleado',
@@ -19,6 +19,7 @@ export class EmpleadoComponent implements OnInit {
   reuniones:Array<Reunion> = []
   empleados:Array<Empleado> = []
   asistente!: string // deberia ser boolean ?
+  
 
 // inyectar
   constructor(private empleadoService: EmpleadoService, private reunionService:  ReunionService, private router: Router) { }
