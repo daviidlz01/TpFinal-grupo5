@@ -31,19 +31,7 @@ empleadoCtrl.findLegajo = async (req,res) =>{
     })
 }
 }
-empleadoCtrl.findParticipante = async (req,res) =>{
-    try {
-        const par = req.query.participante 
-        var fParticipante = await Empleado.find({participante:par})
-        res.json(fParticipante)
-    }catch (error) {
-    console.log(error)
-    res.status(400).json({
-        status: '0',
-        msg: "Error al obtener las Participantes"
-    })
-}
-}
+
 empleadoCtrl.deleteEmpleado= async (req, res)=>{
     try{
         await Empleado.deleteOne({_id: req.params.id});
@@ -64,6 +52,7 @@ empleadoCtrl.mostrar = async (req,res)=>{
     var empleados = await Empleado.find();
     res.json(empleados);
 }
+
 
 
 

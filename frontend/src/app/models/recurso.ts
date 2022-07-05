@@ -1,3 +1,7 @@
 export class Recurso {
-    tipoDeRecursos!:boolean;
+    _id!:string
+    nombre!:string;
+    disponible!:boolean;
+    tipoRecursos!:string;
+    stock!:number
 }

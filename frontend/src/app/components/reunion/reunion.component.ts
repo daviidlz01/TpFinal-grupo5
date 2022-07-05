@@ -36,8 +36,8 @@ export class ReunionComponent implements OnInit {
    horaInicio: reu.horaInicio,
    horaFin: reu.horaFin,
    estado: reu.estado,
-   tipoReunion: reu.tipoReunion,
-   calendario: reu.calendario,
+  //  tipoReunion: reu.tipoReunion,
+  //  calendario: reu.calendario,
    oficina: reu.oficina,
    recursos: reu.recursos
     }
