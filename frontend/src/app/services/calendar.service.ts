@@ -1,15 +1,15 @@
-// import { Injectable } from '@angular/core';
-// import { Observable } from 'rxjs';
-// import { HttpClient } from '@angular/common/http';
-// import { HttpHeaders } from '@angular/common/http';
-// import { HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class CalendarService {
+@Injectable({
+  providedIn: 'root'
+})
+export class CalendarService {
 
-//   constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
 //   createEvent(event:any):Observable<any>{
 //     const httpOptions = {
@@ -30,7 +30,7 @@
 //   }
 // }
 
-
+}
 
 
 

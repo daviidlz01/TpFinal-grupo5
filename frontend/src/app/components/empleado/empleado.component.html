@@ -29,6 +29,7 @@
         <br>
         <br>
         
+        
       <hr>
       <p><em><strong><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
               class="bi bi-people-fill" viewBox="0 0 16 16">
@@ -88,7 +89,10 @@
 
         </p>
 
-
+        <div class="row form-group justify-content-end mr-1">
+          <button type="button" class="btn btn-warning btn-sm" (click)="print()">
+              <strong>Generar Reporte PDF</strong></button>
+        </div>
 
 
         <qrcode  [qrdata]= "'prueba de reunion'" [width]="124" [errorCorrectionLevel]="'M'"></qrcode>
@@ -99,6 +103,10 @@
     </div>
   </div>
 </div>
+
+
+
+<app-calendar></app-calendar>
 
 
 <br>

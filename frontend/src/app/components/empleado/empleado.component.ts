@@ -7,6 +7,7 @@ import { Reunion } from 'src/app/models/reunion';
 import { Router } from '@angular/router';
 import { ReunionService } from 'src/app/services/reunion.service';
 import { ThisReceiver } from '@angular/compiler';
+import * as printJS from 'print-js';
 
 @Component({
   selector: 'app-empleado',
@@ -19,6 +20,7 @@ export class EmpleadoComponent implements OnInit {
   reuniones:Array<Reunion> = []
   empleados:Array<Empleado> = []
   asistente!: string // deberia ser boolean ?
+  propiedadesJSON!:JSON;
   
 
 // inyectar
@@ -50,7 +52,21 @@ export class EmpleadoComponent implements OnInit {
 
 //---------------------------------------------------------------------------
 
-
+//metodo imprimir pdf. 
+print(){
+  printJS({printable: this.propiedadesJSON, 
+    properties: [
+      //field: es el atributo de la LISTA - displayName: es el encabezado de la tabla reporte
+      { field: 'fecha', displayName: 'FECHA'},
+      { field: 'horaInicio', displayName: 'HORAINICIO'},
+      { field: 'horaFIN', displayName: 'HORAFIN'},
+      { field: 'oficina', displayName: 'OFICINA'},
+      { field: 'estado', displayName: 'ESTADO'},
+      { field: 'recursos', displayName: 'RECURSOS'},
+      { field: 'participante', displayName: 'PARTICIPANTE'}
+    ], type: 'json'
+  })
+}
 
 
 
