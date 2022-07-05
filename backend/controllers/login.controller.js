@@ -1,4 +1,8 @@
 const Login = require('../models/login');
+const jwt = require('jsonwebtoken');
+
+
+
 const loginCtrl = {}
 
 loginCtrl.createLogin = async (req, res) => {
@@ -38,12 +42,14 @@ loginCtrl.iniciarLogin = async (req, res) => {
                 'msg': 'usuario no encontrado'
             })
         } else {
+            //preparo un token para ser enviado en caso de loguin correcto 
+            const unToken = jwt.sign({id: user._id}, "secretkey");
             res.json({
                 'status': '1',
                 'msg': 'inicio correcto',
                 usuario: user.usuario,
-                _id: user.empleado
-
+                _id: user.empleado,
+                token: unToken,
             })
         }
     })
