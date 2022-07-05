@@ -5,16 +5,14 @@ border-color: #34ace0;
 border-width: 5px;
 border-radius: 25px;
 background: #FFB142;
-background: -moz-linear-gradient(left, #FFB142 0%, #FFB142 50%, #fff 100%);
-background: -webkit-linear-gradient(left, #FFB142 0%, #FFB142 50%, #fff 100%);
-background: linear-gradient(to right, #FFB142 0%, #FFB142 50%, #fff 100%);
+background: -moz-linear-gradient(left, #FFB142 0%, #FFB142 50%, rgb(201, 84, 84) 100%);
+background: -webkit-linear-gradient(left, #FFB142 0%, #FFB142 50%, rgb(189, 58, 58) 100%);
+background: linear-gradient(to right, #FFB142 0%, #FFB142 50%, rgb(147, 14, 14) 100%);
 
 }
-h2, label{
-    color:#FFF
-}
+
 input {
     border-style: solid;
     border-radius: 25px;
-    border-color: #FFF;
+
 }

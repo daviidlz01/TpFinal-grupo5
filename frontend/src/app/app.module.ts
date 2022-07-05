@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CrearEmpleadoComponent } from './components/crear-empleado/crear-empleado.component';
 import { ReunionComponent } from './components/reunion/reunion.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CtrlReunionesComponent } from './components/ctrl-reuniones/ctrl-reuniones.component';
+import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CrearEmpleadoComponent,
     ReunionComponent,
     FooterComponent,
+    CtrlReunionesComponent,
+    CtrlRecursosComponent,
     
   ],
   imports: [

@@ -3,8 +3,8 @@ const { Schema } = mongoose;
 const recursosSchema = new Schema({
 
     nombre: { type: String, required: true },
-    descripcion: { type: String, required: true },
-    tipoRecurso: { type: Boolean, required: true },
+    disponible: { type: Boolean, required: true },
+    tipoRecurso: { type: String, required: true },
     stock: { type: Number, required: true },
 
 })

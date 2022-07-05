@@ -56,9 +56,11 @@ export class LoginService {
     const body = {
       usuario: usuario.username,
       password: usuario.password,
-      empleado: usuario.empleado._id
+      admin: usuario.admin,
+      empleado: usuario.empleado._id,
+     
     }
-    return this._http.post(this.urlBase + "/crear/" ,body, Options)
+    return this._http.post(this.urlBase + "crear/" ,body, Options)
 
   }
 
