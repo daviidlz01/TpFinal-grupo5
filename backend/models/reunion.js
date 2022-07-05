@@ -11,7 +11,7 @@ const reunionSchema = new Schema({
     oficina :  {type:Schema.Types.ObjectId,ref:oficina ,required:true},
     estado :  {type:String,required:true},
     recursos :  {type:[Schema.Types.ObjectId], ref:recursos,required:false}, //agregar array//
-    participante :  {type:[Schema.Types.ObjectId], ref:empleado,required:true} //agregar array//
+    participantes :  {type:[Schema.Types.ObjectId], ref:empleado,required:true} //agregar array//
 
 })
 module.exports = mongoose.models.Reunion || mongoose.model('Reunion',reunionSchema)
