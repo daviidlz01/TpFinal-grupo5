@@ -80,13 +80,20 @@
                     <input type="text" class="form-control"[(ngModel)]="usuario.username">
                     <label for=""class="form-label"><strong>CONTRASEÑA</strong></label>
                     <input type="text" class="form-control"[(ngModel)]="usuario.password">
+                    <fieldset class="row mb-3">
+                      <legend class="col-form-label col-sm-2 pt-0">Administrador</legend>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="leido" name="leido" [(ngModel)]="usuario.admin">
+                        <label class="form-check-label" for="leido">Administrador</label>
+                      </div>
+                    </fieldset>
                     <select name="empleado" id="empleado"[(ngModel)]="usuario.empleado">
                         <option [ngValue]="empleado">{{empleado.nombre }} {{empleado.apellido }}</option>
                     </select>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><strong>CERRAR</strong></button>
-                  <button type="button" class="btn btn-primary" (click)="crearUsuario()" ><strong>GUARDAR</strong></button>
+                  <button type="button" class="btn btn-primary" (click)="crearUsuario()" routerLink="/login" data-bs-dismiss="modal" ><strong>GUARDAR</strong></button>
                 </div>
               </div>
             </div>

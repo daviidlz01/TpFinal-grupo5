@@ -6,5 +6,6 @@ const router = express.Router();
 router.post('/crear/',notificacionCtrl.creteNotificacion);
 router.get('/mostrar/',notificacionCtrl.getNotificacion);
 router.get('/buscar/', notificacionCtrl.buscar);
+router.delete('/borrar/:id', notificacionCtrl.deleteNotificacion)
 
 module.exports = router;

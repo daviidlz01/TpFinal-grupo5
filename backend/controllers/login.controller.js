@@ -48,5 +48,19 @@ loginCtrl.iniciarLogin = async (req, res) => {
         }
     })
 }
-
+loginCtrl.deleteLogin = async (req, res)=>{
+    try{
+        await Login.deleteOne({_id: req.params.id});
+        res.json({
+            status: '1',
+            msg: 'Login Borrado'
+        })
+    }
+    catch(error){
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error Borrando Login'
+        })
+    }
+}
 module.exports = loginCtrl

@@ -46,7 +46,7 @@ empleadoCtrl.findParticipante = async (req,res) =>{
 }
 empleadoCtrl.deleteEmpleado= async (req, res)=>{
     try{
-        await empleado.deleteOne({_id: req.params.id});
+        await Empleado.deleteOne({_id: req.params.id});
         
         res.json({
             status: '1',

@@ -35,6 +35,20 @@ notificacionCtrl.buscar = async (req,res)=> {
     })
 }
 }
-
+notificacionCtrl.deleteNotificacion = async(req, res)=>{
+    try{
+        await Notificacion.deleteOne({_id: req.params.id});
+        res.json({
+            status: '1',
+            msg: 'Notificacion Borrada'
+        })
+    }
+    catch(error){
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error Borrando Notificacion'
+        })
+    }
+}
 
 module.exports = notificacionCtrl
