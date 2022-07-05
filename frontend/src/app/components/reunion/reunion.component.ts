@@ -38,7 +38,7 @@ export class ReunionComponent implements OnInit {
    estado: reu.estado,
   //  tipoReunion: reu.tipoReunion,
   //  calendario: reu.calendario,
-   oficina: reu.oficina,
+
    recursos: reu.recursos
     }
     reunionesProcess.push(reuTemp);

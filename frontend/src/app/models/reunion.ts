@@ -6,7 +6,6 @@ export class Reunion {
     fecha!:Date;
     horaInicio!:string;
     horaFin!:string;
-    oficina!:string;
     estado!:string;
     recursos!: Array<Recurso>;
     participantes!:Array<Empleado>;

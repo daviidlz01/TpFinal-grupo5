@@ -7,7 +7,6 @@ const reunionSchema = new Schema({
     fecha: {type:Date, required:true},
     horaInicio :{type:String   ,required:true},
     horaFin : {type:String,required:true},
-    oficina : {type:String,required:true},
     estado : {type:String,required:true},
     recursos :[{type: Schema.Types.ObjectId,ref: recursos}],
     participantes : [{type: Schema.Types.ObjectId, ref: empleado}]  
