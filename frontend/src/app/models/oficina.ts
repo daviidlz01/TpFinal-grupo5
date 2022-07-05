@@ -1,4 +1,5 @@
 export class Oficina {
-    horarios!: Date;
-    nombre!:string;
+    _id!:string;
+    numero!: Number;
+    estado!:string;
 }

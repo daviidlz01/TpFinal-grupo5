@@ -1,3 +1,6 @@
 export class Recurso {
-    tipoDeRecursos!:boolean;
+    _id!:string;
+    descripcion!:string;
+    nombre!:string;
+    tipoRecurso!:boolean;
 }
