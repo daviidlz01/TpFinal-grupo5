@@ -50,4 +50,12 @@ export class EmpleadoService {
     return this._http.get(this.urlBase1 + "/mostrar",Options)
   }
 
+
+
+
+
+
+
+
+
 }
