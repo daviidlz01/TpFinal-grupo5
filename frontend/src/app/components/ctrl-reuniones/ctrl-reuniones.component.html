@@ -19,11 +19,11 @@
                 </div>
                 <div class="mb-3 container">
                   <label >Hora Inicio:</label>
-                  <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="reunion.horaInicio">
+                  <input type="time" name="nombre" class="form-control" id="nombre" [(ngModel)]="reunion.horaInicio">
                 </div>
                 <div class="mb-3 container">
                   <label >Hora Fin:</label>
-                  <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="reunion.horaFin">
+                  <input type="time" name="nombre" class="form-control" id="nombre" [(ngModel)]="reunion.horaFin">
                 </div>
                 <div class="form-group mb-3">
                     <label for="recursos" class="form-label">Recursos</label>
@@ -31,6 +31,55 @@
                       <option [ngValue]="recu" *ngFor="let recu of recursos">{{recu.nombre}}</option>
                     </select>
                     <button class="btn btn-primary m-3" type="button" (click)="agregarRecursos(recurso)">Agregar</button>
+                </div>
+                <div *ngIf="recursosAgregar.length!=0">
+                  <h5>Recursos de la Reunion: </h5>
+                  <table>
+                    <table class="table table-responsive table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Tipo Recurso</th>
+                          <th scope="col">stock</th>
+        
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let recur of recursosAgregar">
+                          <td>{{recur.nombre}}</td>
+                          <td>{{recur.tipoRecursos}}</td>
+                          <td>{{recur.stock }}</td>
+                          <td>
+                            <button type="button" class="btn btn-secondary" (click)="quitarRecursos(recur)">Quitar
+                              Recurso</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </table>
+                </div>
+                <div *ngIf="participantesAgregar.length!=0">
+                  <h5>Participantes de la Reunion: </h5>
+                  <table class="table table-responsive table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID/th>
+                        <th scope="col">Apellido y Nombre</th>
+                        <th scope="col">Dependencia</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let part of participantesAgregar">
+                        <td>{{part._id}}</td>
+                        <td>{{part.apellido}}, {{part.nombre}}</td>
+                        <td>{{part.dependencia}}</td>
+                        <td>
+                          <button type="button" class="btn btn-secondary" (click)="quitarParticipante(part)">Quitar
+                            Participante</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
                 <div class="form-group mb-3">
                     <label for="recursos" class="form-label">Participantes</label>

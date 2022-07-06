@@ -24,7 +24,16 @@ export class HeaderComponent implements OnInit {
     this.usuario = new Usuario()
     this.notificacion = new Notificacion()
   }
-
+  admin(){
+  
+   var admin = sessionStorage.getItem('admin')
+    if (admin === "true"){
+      return true
+    }
+    else{
+      return false
+    }
+  }
   ngOnInit(): void {
   }
   logout() {
