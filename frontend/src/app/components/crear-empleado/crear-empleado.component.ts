@@ -13,10 +13,11 @@ export class CrearEmpleadoComponent implements OnInit {
 
   empleado:Empleado;
   usuario:Usuario
-
+  
   constructor(private empledoService : EmpleadoService ,private loginService : LoginService ) { 
     this.empleado = new Empleado()
     this.usuario = new Usuario()
+    this.usuario.admin = false
   }
 
   ngOnInit(): void {

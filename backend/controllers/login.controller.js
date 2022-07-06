@@ -42,7 +42,8 @@ loginCtrl.iniciarLogin = async (req, res) => {
                 'status': '1',
                 'msg': 'inicio correcto',
                 usuario: user.usuario,
-                _id: user.empleado
+                _id: user.empleado,
+                admin: user.admin
 
             })
         }

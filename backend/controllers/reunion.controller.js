@@ -56,5 +56,16 @@ reunionCtrl.deleteReunion = async (req, res)=>{
         })
     }
 }
-
+reunionCtrl.findEmpleado = async (req,res)=> {
+    try{
+        var empleado = await Reunion.find({titulo: req.params._id})
+        res.json(empleado)
+    }
+    catch(error){
+        res.status(400).json({
+            'status': '0',
+            'msg': 'Error Borrando Reunion'
+        })
+    }
+}
 module.exports = reunionCtrl

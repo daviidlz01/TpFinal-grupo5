@@ -27,9 +27,12 @@ export class LoginComponent implements OnInit {
           var user = result;
           if (user.status == 1) {
             //guardamos el user en cookies en el cliente
+            console.log(user.admin)
             sessionStorage.setItem("user", user.usuario);
             sessionStorage.setItem("userid", user._id);
             sessionStorage.setItem("perfil", user.perfil);
+            sessionStorage.setItem("admin", user.admin)
+            console.log(sessionStorage.getItem("admin"))
             //redirigimos a home o a pagina que llamo
             this.router.navigateByUrl(this.returnUrl );
             console.log(user._id);

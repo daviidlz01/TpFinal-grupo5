@@ -1,4 +1,6 @@
+import { Empleado } from "./empleado";
+
 export class Notificacion {
     mensaje!:string;
-    usuario!:string
+    usuario!:Array<Empleado>
 }

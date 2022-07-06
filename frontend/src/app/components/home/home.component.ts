@@ -36,8 +36,8 @@ export class HomeComponent implements OnInit {
     
     this.notificacionService.getNotificaciones(this.user).subscribe(
       (data:any)=>{
-        console.log(data);
-         this.agregarNotificaciones(data)
+        console.log(data.admin);
+        this.agregarNotificaciones(data)
         console.log(this.notificaciones)
         
       }

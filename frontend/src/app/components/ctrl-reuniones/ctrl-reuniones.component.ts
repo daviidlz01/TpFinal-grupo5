@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from 'src/app/models/empleado';
 import { Usuario } from 'src/app/models/login';
+import { Notificacion } from 'src/app/models/notificaciones';
 import { Recurso } from 'src/app/models/recurso';
 import { Reunion } from 'src/app/models/reunion';
 import { EmpleadoService } from 'src/app/service/empleado.service';
+import { NotificacionesService } from 'src/app/service/notificaciones.service';
 import { RecursosService } from 'src/app/services/recursos.service';
 import { ReunionService } from 'src/app/services/reunion.service';
 
@@ -23,11 +25,13 @@ export class CtrlReunionesComponent implements OnInit {
   recursos: Array<Recurso>=[];
   participante: Empleado;
   recurso: Recurso;
+  notificacion:Notificacion;
 
-  constructor(private empleadoService:EmpleadoService, private recursoService: RecursosService, private reunionService:ReunionService) { 
+
+  constructor(private notificacionService:NotificacionesService,private empleadoService:EmpleadoService, private recursoService: RecursosService, private reunionService:ReunionService) { 
     this.reunion= new Reunion();
     this.participantes= new Array<Empleado>();
-   
+    this.notificacion = new Notificacion();
     this.participantesAgregar= new Array<Empleado>();
     this.recursosAgregar= new Array<Recurso>();
     this.participante= new Empleado();
@@ -35,8 +39,17 @@ export class CtrlReunionesComponent implements OnInit {
     this.recurso= new Recurso();
 
   }
-
+  agregarNotificacion(mensaje:string){
+    this.notificacion.mensaje = mensaje;
+    this.notificacion.usuario = this.participantesAgregar
+    this.notificacionService.crearNotificaciones(this.notificacion).subscribe(
+      result =>{
+        console.log(result)
+      }
+    )
+  }
   altaReunion(){
+   var mensaje = "Reunion"
     this.reunion.participantes = this.participantesAgregar;
     this.reunion.recursos = this.recursosAgregar;
     this.reunion.estado = "no realizada";
@@ -46,6 +59,7 @@ export class CtrlReunionesComponent implements OnInit {
         console.log(result);
       }
     )
+    this.agregarNotificacion(mensaje);
   }
   getReuniones(){
 
@@ -98,8 +112,11 @@ export class CtrlReunionesComponent implements OnInit {
      this.participantes.splice(index,1);
    }
    }
-  quitarParticipantes(){
-
+  
+  quitarParticipante(part:Empleado){
+   
+    this.participantesAgregar.splice(this.participantesAgregar.indexOf(part),1);
+    this.participantes.push(part);
   }
   agregarRecursos(recu:Recurso){
     if(recu._id!=null){
@@ -116,13 +133,15 @@ export class CtrlReunionesComponent implements OnInit {
     }
     console.log(this.recursosAgregar)
   }
-  quitarRecursos(){
-
+  quitarRecursos(recu:Recurso){
+    this.recursosAgregar.splice(this.recursosAgregar.indexOf(recu),1);
+    this.recursos.push(recu);
   }
 
   ngOnInit(): void {
     this.getParticipantes()
     this.getRecursos()
+    console.log(sessionStorage.getItem("admin"))
   }
 
 }

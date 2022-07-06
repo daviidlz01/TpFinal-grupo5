@@ -19,7 +19,7 @@ export class LoginService {
         'Content-Type': 'application/json'
       })
     }
-    let body = JSON.stringify({ usuario: username, password: password });
+    let body = JSON.stringify({ usuario: username, password: password});
     console.log(body);
     return this._http.post(this.urlBase + 'login', body, httpOption);
   }
