@@ -5,7 +5,7 @@ const {Schema}= mongoose;
 const reunionSchema = new Schema({
     titulo:{type:String, required:true},
     caracter:{type:String, required:true},
-    fecha: {type:Date, required:true},
+    fecha: {type:String, required:true},
     horaInicio :{type:String   ,required:true},
     horaFin : {type:String,required:true},
     estado : {type:String,required:true},

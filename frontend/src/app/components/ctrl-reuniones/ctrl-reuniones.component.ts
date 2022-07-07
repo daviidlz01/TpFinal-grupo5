@@ -27,6 +27,11 @@ export class CtrlReunionesComponent implements OnInit {
   recurso: Recurso;
   notificacion:Notificacion;
 
+  reuniones: Array<Reunion>=[];
+  reunionAux:Reunion;
+
+
+
 
   constructor(private notificacionService:NotificacionesService,private empleadoService:EmpleadoService, private recursoService: RecursosService, private reunionService:ReunionService) { 
     this.reunion= new Reunion();
@@ -37,6 +42,9 @@ export class CtrlReunionesComponent implements OnInit {
     this.participante= new Empleado();
     this.recursos= new Array<Recurso>();
     this.recurso= new Recurso();
+
+    this.reuniones= new Array<Reunion>();
+    this.reunionAux= new Reunion();
 
   }
   agregarNotificacion(mensaje:string, titulo:string){
@@ -72,11 +80,17 @@ export class CtrlReunionesComponent implements OnInit {
     this.reunion.participantes = this.participantesAgregar;
     this.reunion.recursos = this.recursosAgregar;
     this.reunion.estado = "no realizada";
-    this.reunionService.addReunion(this.reunion).subscribe(
-      result=> {
-        console.log(result);
-        this.reunion._id = result._id
-        for (let part of this.participantesAgregar){
+
+    if(this.comprobarParticipante()==false) {
+      console.log("colicion Participante");
+      
+    }else{
+      this.reunionService.addReunion(this.reunion).subscribe(
+        (data:any)=>{
+          console.log(data);
+          console.log(this.comprobarParticipante());
+                  this.reunion._id = result._id
+                          for (let part of this.participantesAgregar){
           this.empleadoService.agregarReunion(part._id ,result._id).subscribe(
              result =>{
               console.log(result)
@@ -86,10 +100,24 @@ export class CtrlReunionesComponent implements OnInit {
         console.log(result._id)
       }
     )
-    this.agregarNotificacion(mensaje, this.reunion.titulo);
-  }
-  getReuniones(){
+      this.agregarNotificacion(mensaje,this.reunion.titulo);
+    }
 
+    /*
+    console.log(this.reunion)
+
+  
+  getReuniones(){
+    this.reunionService.getReuniones().subscribe(
+      (data:any)=>{
+        data.forEach((element:any)=>{
+          this.reunionAux=new Reunion();
+          Object.assign(this.reunionAux,element);
+          this.reuniones.push(this.reunionAux);
+          this.reunionAux=new Reunion;
+        })
+      }
+    )
   }
 
   getParticipantes(){
@@ -169,6 +197,111 @@ export class CtrlReunionesComponent implements OnInit {
     this.getParticipantes()
     this.getRecursos()
     console.log(sessionStorage.getItem("admin"))
+    this.getReuniones()
   }
 
+  comprobarParticipante():Boolean{
+    var retornar=true;
+    this.reuniones.forEach((reun:Reunion)=>{
+      
+      
+      reun.participantes.forEach((em:Empleado)=>{
+        
+     //   console.log('empleados....');
+        var emp :string|Empleado
+        emp= em
+        console.log(emp);
+        
+        
+        this.reunion.participantes.forEach((empl:Empleado)=>{                 
+          if(reun._id!=this.reunion._id){
+         //   console.log('distintas reuniones.....');
+            
+          if(emp==empl._id ){
+          //  console.log('mismos empleados..');
+            console.log(reun.fecha);       
+            console.log(this.reunion.fecha);
+            
+            if(reun.fecha==this.reunion.fecha){
+            //  console.log('comprobando....');
+              
+              if((this.convertirHora(this.reunion.horaInicio).getHours() > this.convertirHora(reun.horaInicio).getHours()   ||
+               (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
+                this.convertirHora(this.reunion.horaInicio).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))  &&
+                (this.convertirHora(this.reunion.horaInicio).getHours() < this.convertirHora(reun.horaFin).getHours() ||
+                  (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaFin).getHours() && 
+                  this.convertirHora(this.reunion.horaInicio).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))){
+                retornar=false;
+              }else if((this.convertirHora(this.reunion.horaFin).getHours() < this.convertirHora(reun.horaFin).getHours()   ||
+               (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaFin).getHours() &&
+                this.convertirHora(this.reunion.horaFin).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))  &&
+                 (this.convertirHora(this.reunion.horaFin).getHours() > this.convertirHora(reun.horaInicio).getHours() ||
+                   (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
+                    this.convertirHora(this.reunion.horaFin).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))){
+                retornar=false;
+              }
+            } 
+          }
+        }
+        });
+      });
+    });
+    return retornar;
+  }
+  comprobarOficina():Boolean{
+    var retornar=true;
+    this.reuniones.forEach((reun:Reunion)=>{
+      
+      
+      reun.participantes.forEach((em:Empleado)=>{
+        
+     //   console.log('empleados....');
+        var emp :string|Empleado
+        emp= em
+        console.log(emp);
+        
+        
+        this.reunion.participantes.forEach((empl:Empleado)=>{                 
+          if(reun._id!=this.reunion._id){
+         //   console.log('distintas reuniones.....');
+            
+          if(emp==empl._id ){
+          //  console.log('mismos empleados..');
+            console.log(reun.fecha);       
+            console.log(this.reunion.fecha);
+            
+            if(reun.fecha==this.reunion.fecha){
+            //  console.log('comprobando....');
+              
+              if((this.convertirHora(this.reunion.horaInicio).getHours() > this.convertirHora(reun.horaInicio).getHours()   ||
+               (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
+                this.convertirHora(this.reunion.horaInicio).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))  &&
+                (this.convertirHora(this.reunion.horaInicio).getHours() < this.convertirHora(reun.horaFin).getHours() ||
+                  (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaFin).getHours() && 
+                  this.convertirHora(this.reunion.horaInicio).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))){
+                retornar=false;
+              }else if((this.convertirHora(this.reunion.horaFin).getHours() < this.convertirHora(reun.horaFin).getHours()   ||
+               (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaFin).getHours() &&
+                this.convertirHora(this.reunion.horaFin).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))  &&
+                 (this.convertirHora(this.reunion.horaFin).getHours() > this.convertirHora(reun.horaInicio).getHours() ||
+                   (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
+                    this.convertirHora(this.reunion.horaFin).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))){
+                retornar=false;
+              }
+            } 
+          }
+        }
+        });
+      });
+    });
+    return retornar;
+  }
+
+  convertirHora(hora:string):Date{
+    const [hour,minute]= hora.split(':');
+    var tm = new Date();
+    tm.setHours(+hour);
+    tm.setMinutes(+minute);
+    return tm;
+  }
 }
