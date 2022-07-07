@@ -1,30 +1,25 @@
-<div id="principal" class=" col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-4">
+<br>
+<div id="principal" class=" col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 offset-2">
   <div class="center-block">
     <div class="container">
       <br>
       <h1><strong><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#34ace0" class="bi bi-clipboard" viewBox="0 0 16 16">
         <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
         <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-      </svg>   B I E N V E N I D O</strong> </h1>
+      </svg>   B I E N V E N I D O </strong> </h1>
       <hr>
       <p><em><strong><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
               class="bi bi-calendar" viewBox="0 0 16 16">
               <path
                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-            </svg> CALENDARIO DE REUNIONES</strong>
+            </svg> Datos Empleado:</strong>
 
-        </em></p>
-        <form >
-          <label class="text-white">
-           <strong>REUNIONES PROGRAMADAS</strong>
-            <input type="date" name="bday" />
-          </label>
-        
-          <p><button><strong>V E R </strong></button></p>
-        </form>
-        <br>
-        <br>
-        
+      </em></p>
+       
+      <p><strong>Nombre Completo: {{empleado.nombre}} {{empleado.apellido}}</strong></p>
+      <p><strong>Email: {{empleado.email}}</strong></p>
+      <p><strong>Legajo: {{empleado.legajo}}</strong></p>
+      <p><strong>Dependencia: {{empleado.dependencia}}</strong></p> 
       <hr>
       <p><em><strong><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
               class="bi bi-people-fill" viewBox="0 0 16 16">
@@ -39,29 +34,19 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col"><strong>OFICINA </strong></th>
-                  <th scope="col"><strong>RECURSOS</strong></th>
-                  
+                  <th scope="col"><strong>Reunion </strong></th>
+                  <th scope="col"><strong>Caracter</strong></th>
+                  <th scope="col"><strong>Fecha</strong></th>
+                  <th scope="col"><strong></strong></th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let reu of empleado.reuniones">
                   <th scope="row">1</th>
-                  <td> </td>
-                  <td> </td>
-                  
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td> </td>
-                  <td> </td>
-                  
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td> </td>
-                  <td> </td>
-                  
+                  <td> {{reu.titulo}} </td>
+                  <td> {{reu.caracter}} </td>
+                  <td> {{reu.fecha}}</td>
+                  <td><button type="button" class="btn btn-info">+Info</button></td>
                 </tr>
               </tbody>
             </table>

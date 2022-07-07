@@ -1,3 +1,5 @@
+import { Reunion } from "./reunion";
+
 export class Empleado {
     _id!:string
     nombre!:string;
@@ -6,4 +8,5 @@ export class Empleado {
     dependencia!:string;
     legajo!:string;
     leido!:boolean
+    reuniones!:Array<Reunion>;
 }

@@ -38,13 +38,10 @@
       </div>
       
     </div>
-    <div class="me-2 bd-example" *ngIf="loginService.userLoggedIn()">
-      <button class="btn btn-outline-warning text-white" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModalLong"><strong>NOTIFICACIONES</strong></button>
-
-    </div>
+   
     <div>
         <a *ngIf="loginService.userLoggedIn()" [routerLink]="['login']" (click)="logout()">
-          {{loginService.userLogged()}} (Salir)
+        Salir
         </a>
       </div>
   </div>
