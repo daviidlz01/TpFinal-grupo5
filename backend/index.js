@@ -11,6 +11,7 @@ app.use('/api/recurso',require('./routes/recursos.routes'));
 app.use('/api/notificacion',require('./routes/notificacion.routes'));
 app.use('/api/login',require('./routes/login.routes'));
 app.use('/api/reunion',require('./routes/reunion.routes'));
+app.use('/api/email', require('./routes/email.routes'))
 
 //setting
 app.set('port', process.env.PORT || 3000);

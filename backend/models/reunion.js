@@ -4,6 +4,7 @@ const recursos = require('./recursos');
 const {Schema}= mongoose;
 const reunionSchema = new Schema({
     titulo:{type:String, required:true},
+    caracter:{type:String, required:true},
     fecha: {type:Date, required:true},
     horaInicio :{type:String   ,required:true},
     horaFin : {type:String,required:true},

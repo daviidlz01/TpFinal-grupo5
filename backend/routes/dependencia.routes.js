@@ -1,5 +1,5 @@
 
-const dependenciaCtrl = require('./../controllers/dependencia.controller');
+const dependenciaCtrl = require('../controllers/dependencia.controller');
 const express = require('express');
 const router = express.Router();
 

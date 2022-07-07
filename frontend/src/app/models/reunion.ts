@@ -3,6 +3,7 @@ import { Recurso } from "./recurso";
 
 export class Reunion {
     titulo!:string;
+    caracter!:string;
     fecha!:Date;
     horaInicio!:string;
     horaFin!:string;
