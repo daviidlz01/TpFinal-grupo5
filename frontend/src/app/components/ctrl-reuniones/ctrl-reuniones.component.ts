@@ -89,22 +89,21 @@ export class CtrlReunionesComponent implements OnInit {
         (data:any)=>{
           console.log(data);
           console.log(this.comprobarParticipante());
-                  this.reunion._id = result._id
+                  this.reunion._id = data._id
                           for (let part of this.participantesAgregar){
-          this.empleadoService.agregarReunion(part._id ,result._id).subscribe(
+          this.empleadoService.agregarReunion(part._id ,data._id).subscribe(
              result =>{
               console.log(result)
             }
           )
         }
-        console.log(result._id)
+        console.log(data._id)
       }
     )
       this.agregarNotificacion(mensaje,this.reunion.titulo);
     }
-
-    /*
-    console.log(this.reunion)
+  }
+    
 
   
   getReuniones(){
