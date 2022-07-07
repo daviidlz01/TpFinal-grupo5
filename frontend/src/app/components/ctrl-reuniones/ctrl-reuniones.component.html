@@ -36,6 +36,12 @@
                   <input type="time" name="nombre" class="form-control" id="nombre" [(ngModel)]="reunion.horaFin">
                 </div>
                 <div class="form-group mb-3">
+                  <label for="recursos" class="form-label">oficina</label>
+                  <select class="form-select" name="oficina" id="oficina" [(ngModel)]="reunion.oficina" >
+                    <option  [ngValue]="ofi" *ngFor="let ofi of oficinas">{{ofi.numero}}</option>
+                </select>
+              </div>
+                <div class="form-group mb-3">
                     <label for="recursos" class="form-label">Recursos</label>
                     <select class="form-select" name="recurso" id="recurso" [(ngModel)]="recurso" #rec="ngModel" required>
                       <option [ngValue]="recu" *ngFor="let recu of recursos">{{recu.nombre}}</option>

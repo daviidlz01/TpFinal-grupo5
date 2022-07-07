@@ -2,7 +2,7 @@ const Reunion = require('../models/reunion')
 const reunionCtrl = {}
 
 reunionCtrl.mostrar = async (req, res) => {
-    var reuniones = await Reunion.find();
+    var reuniones = await Reunion.find().populate('oficina');
     res.json(reuniones);
 }
 
