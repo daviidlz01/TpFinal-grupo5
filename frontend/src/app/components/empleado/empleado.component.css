@@ -1,5 +1,5 @@
 h1 {
-    color:#34ace0;
+    color:#6b7a80;
 }
 #principal {
     background-color: #ffb142;
@@ -10,9 +10,9 @@ h1 {
     background: #FFB142;
     background: -moz-linear-gradient(left, #FFB142 0%, #FFB142 50%, #fff 100%);
     background: -webkit-linear-gradient(left, #FFB142 0%, #FFB142 50%, #fff 100%);
-    background: linear-gradient(to right, #FFB142 0%, #FFB142 50%, #fff 100%)
-
-}
+    background: linear-gradient(to right, #FFB142 0%, #FFB142 50%, #fff 100%);
+    
+    }
 p {
-    color: #fff
+    color: rgb(59, 65, 112)
 }

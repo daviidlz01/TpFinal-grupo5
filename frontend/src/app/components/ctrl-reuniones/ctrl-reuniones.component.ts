@@ -17,7 +17,7 @@ import {Email} from 'src/app/models/email';
 })
 export class CtrlReunionesComponent implements OnInit {
 
-
+  idReunionCreada="";
   reunion: Reunion
   participantes: Array<Empleado>=[];
   recursosAgregar: Array<Recurso>=[];
@@ -40,14 +40,14 @@ export class CtrlReunionesComponent implements OnInit {
 
   }
   agregarNotificacion(mensaje:string, titulo:string){
-
+    console.log(this.reunion._id)
     var email:Email;
 
     this.notificacion.mensaje = mensaje;
     this.notificacion.usuario = this.participantesAgregar
     this.notificacionService.crearNotificaciones(this.notificacion).subscribe(
       result =>{
-        console.log(result)
+        console.log(result._id)
       }
     )
     for (let part of this.participantesAgregar){
@@ -58,8 +58,13 @@ export class CtrlReunionesComponent implements OnInit {
       this.notificacionService.postEmail(email).subscribe(
         result =>{
           console.log(result)
-        }
+       }
       )
+      this.empleadoService.agregarReunion(part._id ,this.idReunionCreada).subscribe(
+         result =>{
+         console.log(result)
+        }
+     )
     }
   }
   altaReunion(){
@@ -67,10 +72,18 @@ export class CtrlReunionesComponent implements OnInit {
     this.reunion.participantes = this.participantesAgregar;
     this.reunion.recursos = this.recursosAgregar;
     this.reunion.estado = "no realizada";
-    console.log(this.reunion)
     this.reunionService.addReunion(this.reunion).subscribe(
-      result=>{
+      result=> {
         console.log(result);
+        this.reunion._id = result._id
+        for (let part of this.participantesAgregar){
+          this.empleadoService.agregarReunion(part._id ,result._id).subscribe(
+             result =>{
+              console.log(result)
+            }
+          )
+        }
+        console.log(result._id)
       }
     )
     this.agregarNotificacion(mensaje, this.reunion.titulo);
