@@ -19,4 +19,13 @@ export class ReunionService {
     const body = JSON.stringify(reunion)
     return this._http.post(this.urlBase+"crear/",body,Options)
   }
+  getReuniones():Observable<any>{
+    const Options={
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+    }
+    return this._http.get(this.urlBase+"mostrar/",Options)
+
+  }
 }
