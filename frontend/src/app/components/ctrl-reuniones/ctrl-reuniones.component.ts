@@ -8,7 +8,7 @@ import { EmpleadoService } from 'src/app/service/empleado.service';
 import { NotificacionesService } from 'src/app/service/notificaciones.service';
 import { RecursosService } from 'src/app/services/recursos.service';
 import { ReunionService } from 'src/app/services/reunion.service';
-
+import {Email} from 'src/app/models/email';
 
 @Component({
   selector: 'app-ctrl-reuniones',
@@ -39,7 +39,10 @@ export class CtrlReunionesComponent implements OnInit {
     this.recurso= new Recurso();
 
   }
-  agregarNotificacion(mensaje:string){
+  agregarNotificacion(mensaje:string, titulo:string){
+
+    var email:Email;
+
     this.notificacion.mensaje = mensaje;
     this.notificacion.usuario = this.participantesAgregar
     this.notificacionService.crearNotificaciones(this.notificacion).subscribe(
@@ -47,9 +50,20 @@ export class CtrlReunionesComponent implements OnInit {
         console.log(result)
       }
     )
+    for (let part of this.participantesAgregar){
+      email = new Email();
+      email.email = part.email;
+      email.asunto = titulo;
+      email.mensaje = mensaje;
+      this.notificacionService.postEmail(email).subscribe(
+        result =>{
+          console.log(result)
+        }
+      )
+    }
   }
   altaReunion(){
-   var mensaje = "Reunion"
+   var mensaje = `Reunion de caracter: ${this.reunion.caracter}, para la fecha: ${this.reunion.fecha}, desde las: ${this.reunion.horaInicio}, hasta las: ${this.reunion.horaFin}`
     this.reunion.participantes = this.participantesAgregar;
     this.reunion.recursos = this.recursosAgregar;
     this.reunion.estado = "no realizada";
@@ -59,7 +73,7 @@ export class CtrlReunionesComponent implements OnInit {
         console.log(result);
       }
     )
-    this.agregarNotificacion(mensaje);
+    this.agregarNotificacion(mensaje, this.reunion.titulo);
   }
   getReuniones(){
 
