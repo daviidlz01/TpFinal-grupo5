@@ -41,7 +41,8 @@ export class EmpleadoService {
   }
   //traer todos los participantes
 
-  getEmpleado():Observable<any>{
+
+  getEmpleados():Observable<any>{
     const Options ={
       method: "GET",
       headers: new HttpHeaders({}),
@@ -50,9 +51,14 @@ export class EmpleadoService {
     return this._http.get(this.urlBase1 + "/mostrar",Options)
   }
 
-
-
-
+  getReuniones(id: string|null):Observable<any>{
+    const Options ={
+      method: "GET",
+      headers: new HttpHeaders({}),
+      params:new HttpParams({})
+    }
+    return this._http.get(`http://localhost:3000/api/empleado/${id}`,Options)
+  }
 
 
 

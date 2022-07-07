@@ -1,7 +1,7 @@
 const Reunion = require('../models/reunion')
 const reunionCtrl = {}
 
-reunionCtrl.getReuniones = async (req, res) => {
+reunionCtrl.mostrar = async (req, res) => {
     var reuniones = await Reunion.find();
     res.json(reuniones);
 }
@@ -12,8 +12,10 @@ reunionCtrl.createReunion = async (req, res) => {
     try {
         await reunion.save();
         res.json({
-            'status': '1',
-            'msg': 'reunion guardado.'
+            'status':'1',
+            'msg':'Empleado creado',
+            _id: reunion._id
+
         })
     } catch (error) {
         res.status(400).json({
@@ -58,13 +60,14 @@ reunionCtrl.deleteReunion = async (req, res)=>{
 }
 reunionCtrl.findEmpleado = async (req,res)=> {
     try{
-        var empleado = await Reunion.find({titulo: req.params._id})
-        res.json(empleado)
+        
+        var empleado = await Reunion.find({participantes: [req.params._id]})
+        res.json(Reunion)
     }
     catch(error){
         res.status(400).json({
             'status': '0',
-            'msg': 'Error Borrando Reunion'
+            'msg': 'Error Borrando buscando empleado'
         })
     }
 }

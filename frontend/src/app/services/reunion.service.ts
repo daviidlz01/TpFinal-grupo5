@@ -28,4 +28,5 @@ export class ReunionService {
     return this._http.get(this.urlBase+"mostrar/",Options)
 
   }
+
 }

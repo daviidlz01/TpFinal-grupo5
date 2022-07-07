@@ -12,6 +12,7 @@ export class EmpleadoService {
 
   constructor(private _http:HttpClient) { }
 
+  
   getEmpleados ():Observable<any>{
     const options= {
       headers: new HttpHeaders({
@@ -31,4 +32,15 @@ export class EmpleadoService {
     const body = JSON.stringify(empleado)
     return this._http.post(this.urlBase+"crear/",body,Options)
   }
+  agregarReunion( idEmpleado:string, idReunion:string){
+    const Options={
+      method: "PUT",
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+    }
+    return this._http.put(`http://localhost:3000/api/empleado/${idEmpleado}/reunion/${idReunion}`,Options)
+  }
+
+
 }
