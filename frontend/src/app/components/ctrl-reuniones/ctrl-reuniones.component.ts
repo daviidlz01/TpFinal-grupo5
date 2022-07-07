@@ -9,6 +9,8 @@ import { NotificacionesService } from 'src/app/service/notificaciones.service';
 import { RecursosService } from 'src/app/services/recursos.service';
 import { ReunionService } from 'src/app/services/reunion.service';
 import {Email} from 'src/app/models/email';
+import { OficinaService } from 'src/app/service/oficina.service';
+import { Oficina } from 'src/app/models/oficina';
 
 @Component({
   selector: 'app-ctrl-reuniones',
@@ -30,10 +32,12 @@ export class CtrlReunionesComponent implements OnInit {
   reuniones: Array<Reunion>=[];
   reunionAux:Reunion;
 
+  oficina:Oficina
+  oficinas: Array<Oficina> = [];
 
 
 
-  constructor(private notificacionService:NotificacionesService,private empleadoService:EmpleadoService, private recursoService: RecursosService, private reunionService:ReunionService) { 
+  constructor(private oficinaService : OficinaService,private notificacionService:NotificacionesService,private empleadoService:EmpleadoService, private recursoService: RecursosService, private reunionService:ReunionService) { 
     this.reunion= new Reunion();
     this.participantes= new Array<Empleado>();
     this.notificacion = new Notificacion();
@@ -42,9 +46,10 @@ export class CtrlReunionesComponent implements OnInit {
     this.participante= new Empleado();
     this.recursos= new Array<Recurso>();
     this.recurso= new Recurso();
-
+    this.oficina = new Oficina();
     this.reuniones= new Array<Reunion>();
     this.reunionAux= new Reunion();
+    this.oficinas = new Array<Oficina>();
 
   }
   agregarNotificacion(mensaje:string, titulo:string){
@@ -84,6 +89,8 @@ export class CtrlReunionesComponent implements OnInit {
     if(this.comprobarParticipante()==false) {
       console.log("colicion Participante");
       
+    }else if(this.comprobarOficinas()==false) {
+      console.log('colicion Oficina')
     }else{
       this.reunionService.addReunion(this.reunion).subscribe(
         (data:any)=>{
@@ -131,7 +138,7 @@ export class CtrlReunionesComponent implements OnInit {
           this.participantes.push(empleado);
           empleado=new Empleado();
          })
-         console.log(this.participantes)
+         //console.log(this.participantes)
       }
     )
   }
@@ -152,6 +159,20 @@ export class CtrlReunionesComponent implements OnInit {
       }
     )
   }
+  getOficinas(){
+    this.oficinaService.getOficinas().subscribe(
+      (data: any) => {
+        data.forEach((oficinas: any) => {
+          this.oficina = new Oficina();
+          Object.assign(this.oficina, oficinas);
+          this.oficinas.push(this.oficina);
+          this.oficina = new Oficina();
+          
+        })
+      }
+    )
+  }
+
   agregarParticipantes(part:Empleado){
     if(part._id!=null){
      this.participantesAgregar.push(part);
@@ -197,6 +218,7 @@ export class CtrlReunionesComponent implements OnInit {
     this.getRecursos()
     console.log(sessionStorage.getItem("admin"))
     this.getReuniones()
+    this.getOficinas()
   }
 
   comprobarParticipante():Boolean{
@@ -209,7 +231,7 @@ export class CtrlReunionesComponent implements OnInit {
      //   console.log('empleados....');
         var emp :string|Empleado
         emp= em
-        console.log(emp);
+        //console.log(emp);
         
         
         this.reunion.participantes.forEach((empl:Empleado)=>{                 
@@ -218,8 +240,8 @@ export class CtrlReunionesComponent implements OnInit {
             
           if(emp==empl._id ){
           //  console.log('mismos empleados..');
-            console.log(reun.fecha);       
-            console.log(this.reunion.fecha);
+           // console.log(reun.fecha);       
+           // console.log(this.reunion.fecha);
             
             if(reun.fecha==this.reunion.fecha){
             //  console.log('comprobando....');
@@ -247,51 +269,38 @@ export class CtrlReunionesComponent implements OnInit {
     });
     return retornar;
   }
-  comprobarOficina():Boolean{
+  comprobarOficinas():Boolean{
     var retornar=true;
     this.reuniones.forEach((reun:Reunion)=>{
+      //console.log(reun);
       
-      
-      reun.participantes.forEach((em:Empleado)=>{
+      if(reun._id!=this.reunion._id){
+        //console.log(reun.oficina);
+        //console.log(this.reunion.oficina._id);
+        var re :string|Oficina
+        re=reun.oficina._id
+        //console.log(re);
         
-     //   console.log('empleados....');
-        var emp :string|Empleado
-        emp= em
-        console.log(emp);
-        
-        
-        this.reunion.participantes.forEach((empl:Empleado)=>{                 
-          if(reun._id!=this.reunion._id){
-         //   console.log('distintas reuniones.....');
-            
-          if(emp==empl._id ){
-          //  console.log('mismos empleados..');
-            console.log(reun.fecha);       
-            console.log(this.reunion.fecha);
-            
-            if(reun.fecha==this.reunion.fecha){
-            //  console.log('comprobando....');
-              
-              if((this.convertirHora(this.reunion.horaInicio).getHours() > this.convertirHora(reun.horaInicio).getHours()   ||
-               (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
-                this.convertirHora(this.reunion.horaInicio).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))  &&
-                (this.convertirHora(this.reunion.horaInicio).getHours() < this.convertirHora(reun.horaFin).getHours() ||
-                  (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaFin).getHours() && 
-                  this.convertirHora(this.reunion.horaInicio).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))){
-                retornar=false;
-              }else if((this.convertirHora(this.reunion.horaFin).getHours() < this.convertirHora(reun.horaFin).getHours()   ||
-               (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaFin).getHours() &&
-                this.convertirHora(this.reunion.horaFin).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))  &&
-                 (this.convertirHora(this.reunion.horaFin).getHours() > this.convertirHora(reun.horaInicio).getHours() ||
-                   (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
-                    this.convertirHora(this.reunion.horaFin).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))){
-                retornar=false;
-              }
-            } 
+      if(re==this.reunion.oficina._id){
+        if(reun.fecha==this.reunion.fecha){
+          if((this.convertirHora(this.reunion.horaInicio).getHours() > this.convertirHora(reun.horaInicio).getHours()   ||
+           (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
+            this.convertirHora(this.reunion.horaInicio).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes())) &&
+             (this.convertirHora(this.reunion.horaInicio).getHours() < this.convertirHora(reun.horaFin).getHours() ||
+               (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaFin).getHours() &&
+                this.convertirHora(this.reunion.horaInicio).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))){
+            retornar=false;
+          }else if((this.convertirHora(this.reunion.horaFin).getHours() < this.convertirHora(reun.horaFin).getHours()   ||
+           (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaFin).getHours() && 
+           this.convertirHora(this.reunion.horaFin).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))  &&
+            (this.convertirHora(this.reunion.horaFin).getHours() > this.convertirHora(reun.horaInicio).getHours() ||
+              (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
+               this.convertirHora(this.reunion.horaFin).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))){
+            retornar=false;
           }
         }
-        });
-      });
+      }
+    }
     });
     return retornar;
   }

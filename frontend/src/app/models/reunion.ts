@@ -1,4 +1,5 @@
 import { Empleado } from "./empleado";
+import { Oficina } from "./oficina";
 import { Recurso } from "./recurso";
 
 export class Reunion {
@@ -11,5 +12,6 @@ export class Reunion {
     estado!:string;
     recursos!: Array<Recurso>;
     participantes!:Array<Empleado>;
+    oficina!:Oficina
     
 }
