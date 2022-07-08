@@ -17,6 +17,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CtrlReunionesComponent } from './components/ctrl-reuniones/ctrl-reuniones.component';
 import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.component';
 import { CrearRecursoComponent } from './components/crear-recurso/crear-recurso.component';
+import { CrearOficinaComponent } from './components/crear-oficina/crear-oficina.component';
+import { BuscarComponent } from './components/buscar/buscar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { CrearRecursoComponent } from './components/crear-recurso/crear-recurso.
     CtrlReunionesComponent,
     CtrlRecursosComponent,
     CrearRecursoComponent,
+    CrearOficinaComponent,
+    BuscarComponent,
     
   ],
   imports: [

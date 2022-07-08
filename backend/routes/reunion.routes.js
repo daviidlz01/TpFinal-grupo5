@@ -8,6 +8,9 @@ router.put('/editar/:id',reunionCtrl.editReunion);
 router.delete('/borrar/:id', reunionCtrl.deleteReunion);
 router.get('/buscar/:id',reunionCtrl.findEmpleado)
 router.put('/:id/estado/:estado', reunionCtrl.cambiarEstado);
+router.get('/buscarFecha/',reunionCtrl.buscarFecha);
+router.get('/buscarOficina/',reunionCtrl.buscaroficina)
+router.get('/buscarEmpleado/',reunionCtrl.buscarEmpleado)
 
 
 
