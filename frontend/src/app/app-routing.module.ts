@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CrearEmpleadoComponent } from './components/crear-empleado/crear-empleado.component';
+import { CrearRecursoComponent } from './components/crear-recurso/crear-recurso.component';
 import { CtrlReunionesComponent } from './components/ctrl-reuniones/ctrl-reuniones.component';
 import { EmpleadoComponent } from './components/empleado/empleado.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'empleado', component: EmpleadoComponent},
   {path: 'reunion', component: ReunionComponent},
   {path:'reuniones',component:CtrlReunionesComponent},
+  {path:'recurso',component:CrearRecursoComponent},
   {path:'**', pathMatch:'full', redirectTo:'home'},
   
 ];
