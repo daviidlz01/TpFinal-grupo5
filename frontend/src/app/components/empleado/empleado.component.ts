@@ -8,12 +8,26 @@ import { Router } from '@angular/router';
 import { ReunionService } from 'src/app/services/reunion.service';
 
 
+
+
+
 @Component({
   selector: 'app-empleado',
   templateUrl: './empleado.component.html',
   styleUrls: ['./empleado.component.css']
 })
 export class EmpleadoComponent implements OnInit {
+
+  public qrCodeText! : string;
+  
+  title = 'extraqrcode';
+  elementType = 'NgxQrcodeElementTypes.URL';
+  correctionLevel ='NgxQrcodeErrorCorrectionLevels.HIGH';
+  value = 'http://localhost:4200/empleado'
+
+  
+ 
+  
   // creacion nuevo objeto y Array
 
   empleados:Array<Empleado> = []
@@ -21,6 +35,9 @@ export class EmpleadoComponent implements OnInit {
   empleadoid!:string |null;
   empleado!: Empleado;
   reuniones: Array<Reunion>
+  usuariosPrint!:Array<any>
+ 
+
 // inyectar
   constructor(private empleadoService: EmpleadoService, private reunionService:  ReunionService, private router: Router) {
     this.empleado = new Empleado();
@@ -74,6 +91,7 @@ cargarReuniones(empleado: Empleado){
   console.log(this.reuniones)
 }
 
+//-----------------------------------------------------------------
 
 
 }

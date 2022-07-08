@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { QRCodeModule } from 'angularx-qrcode';
+
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { QRCodeModule } from 'angular2-qrcode';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +20,7 @@ import { ReunionComponent } from './components/reunion/reunion.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CtrlReunionesComponent } from './components/ctrl-reuniones/ctrl-reuniones.component';
 import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.component';
+import { NgxPrintModule } from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,8 @@ import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,QRCodeModule
+    AppRoutingModule,FormsModule,HttpClientModule,
+    NgxQRCodeModule, NgxPrintModule,    QRCodeModule
     
   ],
   providers: [LoginService],
