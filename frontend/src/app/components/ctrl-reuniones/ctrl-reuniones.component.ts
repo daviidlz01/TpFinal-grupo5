@@ -12,6 +12,7 @@ import {Email} from 'src/app/models/email';
 import { OficinaService } from 'src/app/service/oficina.service';
 import { Oficina } from 'src/app/models/oficina';
 import * as printJS from 'print-js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ctrl-reuniones',
@@ -41,7 +42,7 @@ export class CtrlReunionesComponent implements OnInit {
 
 
 
-  constructor(private oficinaService : OficinaService,private notificacionService:NotificacionesService,private empleadoService:EmpleadoService, private recursoService: RecursosService, private reunionService:ReunionService) { 
+  constructor(private router:Router,private oficinaService : OficinaService,private notificacionService:NotificacionesService,private empleadoService:EmpleadoService, private recursoService: RecursosService, private reunionService:ReunionService) { 
     this.reunion= new Reunion();
     this.participantes= new Array<Empleado>();
     this.notificacion = new Notificacion();
@@ -112,6 +113,8 @@ export class CtrlReunionesComponent implements OnInit {
       }
     )
       this.agregarNotificacion(mensaje,this.reunion.titulo);
+      document.getElementById("btnResultado")?.click();
+
     }
   }
     
@@ -321,6 +324,9 @@ export class CtrlReunionesComponent implements OnInit {
     this.reunionService.cambiarEstado(id, estado).subscribe(
       result =>{
         console.log(result)
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([this.router.url])
       }
     )
   }

@@ -16,6 +16,7 @@ import { ReunionComponent } from './components/reunion/reunion.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CtrlReunionesComponent } from './components/ctrl-reuniones/ctrl-reuniones.component';
 import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.component';
+import { CrearRecursoComponent } from './components/crear-recurso/crear-recurso.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.
     FooterComponent,
     CtrlReunionesComponent,
     CtrlRecursosComponent,
+    CrearRecursoComponent,
     
   ],
   imports: [

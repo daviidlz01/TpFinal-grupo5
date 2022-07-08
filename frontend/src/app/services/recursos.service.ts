@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Recurso } from '../models/recurso';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,15 @@ export class RecursosService {
     }
     return this._http.get(this.urlBase + "/mostrar",Options)
 
+  }
+  crearRecursao(recurso:Recurso):Observable<any>{
+    const Options={
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+
+    }
+    const body = JSON.stringify(recurso)
+return this._http.post(this.urlBase+'/crear/',body,Options)
   }
 }

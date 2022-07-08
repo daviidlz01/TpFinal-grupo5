@@ -63,8 +63,7 @@
                       <tbody>
                         <tr *ngFor="let recur of recursosAgregar">
                           <td>{{recur.nombre}}</td>
-                          <td>{{recur.tipoRecursos}}</td>
-                          <td>{{recur.stock }}</td>
+                          <td>{{recur.tipoRecurso}}</td>
                           <td>
                             <button type="button" class="btn btn-secondary" (click)="quitarRecursos(recur)">Quitar
                               Recurso</button>
@@ -107,7 +106,7 @@
               
               
                 <div>
-                    <button class="btn btn-secondary" (click)="altaReunion()" >  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                    <button class="btn btn-secondary" (click)="altaReunion()" data-bs-toggle="modal" data-bs-target="#log">  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
                         <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                       </svg> CREAR Reunion</button>
                     </div>
@@ -148,4 +147,27 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<div  class="modal fade" id="log" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logTitle"><strong>CREAR Usuario</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <strong>Reunion Creada Correctamente</strong>
+          <label for=""class="form-label"><strong>fecha</strong></label>
+<label>{{reunion.fecha}}</label>
+          <label for=""class="form-label"><strong>CONTRASEÑA</strong></label>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><strong>CERRAR</strong></button>
+        <button type="button" class="btn btn-primary"   data-bs-dismiss="modal" ><strong>GUARDAR</strong></button>
+      </div>
+    </div>
+  </div>
+  
 </div>
