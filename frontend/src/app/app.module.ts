@@ -20,6 +20,7 @@ import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.
 import { CrearRecursoComponent } from './components/crear-recurso/crear-recurso.component';
 import { CrearOficinaComponent } from './components/crear-oficina/crear-oficina.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BuscarComponent } from './components/buscar/buscar.component';
     CrearRecursoComponent,
     CrearOficinaComponent,
     BuscarComponent,
+    CalendarComponent,
     
   ],
   imports: [

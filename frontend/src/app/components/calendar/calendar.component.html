@@ -1,0 +1,30 @@
+<div class="area">
+    MI CALENDARIO
+   </div>
+<br>
+<br>
+<hr>
+
+<form class="" style="margin: auto; width: 220px;">
+
+  <div class="form-group">
+    <label for="my-input">Event Title</label>
+    <input id="sumary" class="form-control" type="text"
+    [(ngModel)]="event.summary" name="sumary">
+
+    <label for="my-input">Event From</label>
+    <input id="from" class="form-control" type="datetime-local"
+    [(ngModel)]="fromDate" name="from">
+
+    <label for="my-input">Event to</label>
+    <input id="to" class="form-control" type="datetime-local"
+    [(ngModel)]="toDate" name="to">
+  </div>
+
+    <button class="btn btn-primary"
+        (click)="postEvent()">Agregar Evento</button>
+</form>
+<br>
+<br>
+<hr>
+<p class="align: center"><iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23E4C441&ctz=America%2FArgentina%2FJujuy&showTitle=0&src=NDRkc2JvbWpmaWNwamN1YTVlOTliMG9kc2dAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23F6BF26" style="border:solid 1px #777" width="400" height="300" frameborder="0" scrolling="no"></iframe></p>
