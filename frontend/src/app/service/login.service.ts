@@ -28,6 +28,9 @@ export class LoginService {
     sessionStorage.removeItem("user");
     sessionStorage.removeItem("perfil");
     sessionStorage.removeItem("userid");
+
+    //borro el token almacenado mediante el storage
+    sessionStorage.removeItem("token");
   }
   public userLoggedIn() {
     var resultado = false;
@@ -58,10 +61,17 @@ export class LoginService {
       password: usuario.password,
       admin: usuario.admin,
       empleado: usuario.empleado._id,
-     
+
     }
     return this._http.post(this.urlBase + "crear/" ,body, Options)
 
   }
 
+  getToken():string{
+    if (sessionStorage.getItem("token")!= null){
+      return sessionStorage.getItem("token")!;
+    }else{
+      return "";
+    }
+  }
 }

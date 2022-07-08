@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QRCodeModule } from 'angularx-qrcode';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,8 @@ import { ReunionComponent } from './components/reunion/reunion.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CtrlReunionesComponent } from './components/ctrl-reuniones/ctrl-reuniones.component';
 import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +31,20 @@ import { CtrlRecursosComponent } from './components/ctrl-recursos/ctrl-recursos.
     FooterComponent,
     CtrlReunionesComponent,
     CtrlRecursosComponent,
-    
+    CalendarComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule,QRCodeModule
-    
+
   ],
-  providers: [LoginService],
+  providers: [LoginService,
+    { provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
