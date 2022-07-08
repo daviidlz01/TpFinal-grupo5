@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Empleado } from 'src/app/models/empleado';
 import { Usuario } from 'src/app/models/login';
 import { EmpleadoService } from 'src/app/service/empleado.service';
@@ -14,7 +15,7 @@ export class CrearEmpleadoComponent implements OnInit {
   empleado:Empleado;
   usuario:Usuario
   
-  constructor(private empledoService : EmpleadoService ,private loginService : LoginService ) { 
+  constructor(private router : Router,private empledoService : EmpleadoService ,private loginService : LoginService ) { 
     this.empleado = new Empleado()
     this.usuario = new Usuario()
     this.usuario.admin = false
@@ -42,7 +43,11 @@ export class CrearEmpleadoComponent implements OnInit {
       }
     )
   }
-
+  actualizar(){
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate([this.router.url])
+  }
   crearUsuario(){
     this.loginService.crearUsuario(this.usuario).subscribe(
       (data:any)=>{
