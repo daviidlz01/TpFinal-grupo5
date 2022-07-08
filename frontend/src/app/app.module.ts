@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { QRCodeModule } from 'angularx-qrcode';
 
+import { NgxPrintModule } from 'ngx-print'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpleadoComponent } from './components/empleado/empleado.component';
@@ -39,7 +40,7 @@ import { BuscarComponent } from './components/buscar/buscar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,QRCodeModule
+    AppRoutingModule,FormsModule,HttpClientModule,QRCodeModule, NgxPrintModule
     
   ],
   providers: [LoginService],

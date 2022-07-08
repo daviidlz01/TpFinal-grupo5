@@ -21,6 +21,7 @@ export class EmpleadoComponent implements OnInit {
   asistente!: string // deberia ser boolean ?
   empleadoid!:string |null;
   empleado!: Empleado;
+  reun!: Reunion
   reuniones: Array<Reunion>
 // inyectar
   constructor(private empleadoService: EmpleadoService, private reunionService:  ReunionService, private router: Router) {
@@ -75,8 +76,14 @@ cargarReuniones(empleado: Empleado){
   console.log(this.reuniones)
 }
 
-imprimir(reunion: Reunion){
-  printJS({printable: reunion, properties: ['titulo','fecha', 'horaInicio', 'horaFin', 'estado',
+imprimir(id:string){
+  for (let reu of this.empleado.reuniones){
+    if(reu._id === id){
+      this.reun = reu;
+    }
+  }  
+ 
+  printJS({printable: this.empleado.reuniones, properties: ['titulo','fecha', 'horaInicio', 'horaFin', 'estado',
   'oficina'], type:
    'json'})
 }

@@ -30,7 +30,7 @@
             </svg> VER REUNIONES</strong></em></p>
             <br>
             <br>
-            <table class="table table-bordered table-hover text-white">
+            <table id="demo" class="table table-bordered table-hover text-white">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -46,14 +46,19 @@
                   <td> {{reu.titulo}} </td>
                   <td> {{reu.caracter}} </td>
                   <td> {{reu.fecha}}</td>
-                  <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#log">+Info</button></td>
+                  <td>
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#log">+Info</button>
+                    
+                  </td>
                   <div  class="modal fade" id="log" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="logTitle"><strong>{{reu.titulo}}</strong></h5>
                         </div>
-                        <div class="modal-body">
+                        <div id="modal" class="modal-body">
+
+                          
                           <h5>ID:</h5>
                           <p>{{reu._id}}</p>
                           <h5>Caracter:</h5>
@@ -70,10 +75,13 @@
                           <p>{{reu.recursos}}</p>
                           <h5>Estado:</h5>
                           <p>{{reu.estado}}</p>
+                          <p>
+                          <qrcode  [qrdata]= "'reu.id'" [width]="248" [errorCorrectionLevel]="'M'"></qrcode>
+                          </p>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><strong>CERRAR</strong></button>
-                          <button class="btn btn-primary" (click)="imprimir(reu)">cargar PDF</button>
+                          <button class="btn btn-info" printTitle="Reunion {{reu.titulo}}" printSectionId ="modal" ngxPrint> <strong>  IMPRIMIR</strong></button>
                         </div>
                       </div>
                     </div>
@@ -104,7 +112,7 @@
 
 
 
-        <qrcode  [qrdata]= "'prueba de reunion'" [width]="124" [errorCorrectionLevel]="'M'"></qrcode>
+        
 
        
 
