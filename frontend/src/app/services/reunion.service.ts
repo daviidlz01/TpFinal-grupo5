@@ -19,6 +19,14 @@ export class ReunionService {
     const body = JSON.stringify(reunion)
     return this._http.post(this.urlBase+"crear/",body,Options)
   }
+  cambiarEstado(id:string, estado:string):Observable<any>{
+    const Options={
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+    }
+    return this._http.put(this.urlBase+`${id}/estado/${estado}`,Options)
+  }
   getReuniones():Observable<any>{
     const Options={
       headers: new HttpHeaders({

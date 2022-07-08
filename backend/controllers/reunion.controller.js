@@ -71,4 +71,24 @@ reunionCtrl.findEmpleado = async (req,res)=> {
         })
     }
 }
+reunionCtrl.cambiarEstado = async (req,res)=>{
+    const NuevoEstado = req.params.estado;
+    const idReunion = req.params.id;
+    var reunion= await Reunion.findById(idReunion);
+    reunion.estado = NuevoEstado;
+    
+    try{
+        await Reunion.updateOne({_id: idReunion}, reunion)
+        res.status(200).json({
+            status : 1,
+            msg: "Estado Actualizado"
+        })
+    }catch{
+        res.status(400).json({
+            status: 0,
+            msg: "Error al Actualizar Estado"
+        })
+    }
+ 
+}
 module.exports = reunionCtrl
