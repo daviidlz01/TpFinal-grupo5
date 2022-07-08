@@ -16,3 +16,12 @@ h1 {
 p {
     color: rgb(59, 65, 112)
 }
+.padre {
+    background-color: #fafafa;
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    /* IMPORTANTE */
+    text-align: center;
+    border-radius: 20px;
+  }
