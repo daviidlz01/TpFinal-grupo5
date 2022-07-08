@@ -18,11 +18,17 @@ export class HeaderComponent implements OnInit {
   usuario!: Usuario
 
   notificacion!:Notificacion
+  idEmpeado!:string | null;
+  user!:string|null;
+
+  notificaciones!:Array<Notificacion>
 
   constructor(public loginService: LoginService, private empleadoService: EmpleadoService , private notificacionService : NotificacionesService) {
     this.empleado = new Empleado()
     this.usuario = new Usuario()
     this.notificacion = new Notificacion()
+    this.notificaciones = new Array<Notificacion>()
+    
   }
   admin(){
   
@@ -35,10 +41,38 @@ export class HeaderComponent implements OnInit {
     }
   }
   ngOnInit(): void {
+    this.getnotificaciones()
   }
   logout() {
     this.loginService.logout();
   }
+getnotificaciones(){
+  this.idEmpeado = sessionStorage.getItem('userid');
+    this.user = sessionStorage.getItem('user');
+
+    console.log(this.idEmpeado);
+    console.log(this.user);
 
 
+    this.agregarNotificaiones();
+
+      }
+
+      agregarNotificaiones(){
+        this.notificacionService.getNotificaciones(this.idEmpeado).subscribe(
+          (data: any) => {
+            data.forEach((notificaciones: any) => {
+              this.notificacion = new Notificacion();
+              Object.assign(this.notificacion, notificaciones);
+              this.notificaciones.push(this.notificacion);
+              this.notificacion = new Notificacion();
+              
+            })
+          }
+        )
+      }
+    
 }
+
+
+
