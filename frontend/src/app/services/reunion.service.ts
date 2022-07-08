@@ -36,5 +36,31 @@ export class ReunionService {
     return this._http.get(this.urlBase+"mostrar/",Options)
 
   }
+  buscarFecha(fecha:string):Observable<any>{
+    const Options={
+      headers: new HttpHeaders({
+      }),
 
+  }
+  return this._http.get(this.urlBase+"buscarFecha/?fecha="+fecha,Options)
+
+}
+buscarOficina(oficina:string):Observable<any>{
+  const Options={
+    headers: new HttpHeaders({
+    }),
+
+}
+return this._http.get(this.urlBase+"buscarOficina/?oficina="+oficina,Options)
+
+}
+buscarEmpleado(emplead:string):Observable<any>{
+  const Options={
+    headers: new HttpHeaders({
+    }),
+
+}
+return this._http.get(this.urlBase+"buscarEmpleado/?participantes="+emplead,Options)
+
+}
 }

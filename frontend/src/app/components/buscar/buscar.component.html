@@ -1,1 +1,56 @@
-<p>buscar works!</p>
+<form #formB="ngForm">
+    <div>
+        <title>Buscar</title>
+    </div>
+    <div>
+        <label>como desea buscar?:</label>
+        <select name="opcion" id="opcion" [(ngModel)]="opcion">
+            <option value="f">fecha</option>
+            <option value="o">oficina</option>
+            <option value="p">participante</option>
+        </select>
+    </div>
+    <div *ngIf="opcion=='f'">
+        <h1>Buscar por Fecha</h1>
+        <input type="date" id="fecha" name="fecha" [(ngModel)]="fecha">
+        <button class="btn btn-primary"(click)="buscarfecha()">Buscar</button>
+    </div>
+    <div *ngIf="opcion=='o'">
+        <h1>Buscar por Oficina</h1>
+        <select class="form-select" name="oficina" id="oficina" [(ngModel)]="oficina">
+            <option [ngValue]="ofi" *ngFor="let ofi of oficinas">{{ofi.numero}}</option>
+        </select>
+        <button class="btn btn-primary" (click)="buscarOficina()">Buscar</button>
+
+    </div>
+    <div *ngIf="opcion=='p'">
+        <h1>Buscar por Participante</h1>
+        <select class="form-select" name="participantes" id="participantes" [(ngModel)]="participante" #part="ngModel"
+            required>
+            <option [ngValue]="par" *ngFor="let par of participantes">{{par.nombre}}</option>
+        </select>
+        <button class="btn btn-primary"(click)="buscarEmpleado()">Buscar</button>
+
+    </div>
+    <button class="btn btn-primary" (click)="actualizar()">recargar</button>
+</form>
+<table class="table table-bordered table-hover text-black">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"><strong>Reunion </strong></th>
+        <th scope="col"><strong>Caracter</strong></th>
+        <th scope="col"><strong>Fecha</strong></th>
+        <th scope="col"><strong></strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reu of reuniones">
+        <th scope="row">1</th>
+        <td> {{reu.titulo}} </td>
+        <td> {{reu.caracter}} </td>
+        <td> {{reu.fecha}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
