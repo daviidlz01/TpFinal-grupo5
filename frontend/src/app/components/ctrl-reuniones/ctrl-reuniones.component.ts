@@ -96,6 +96,8 @@ export class CtrlReunionesComponent implements OnInit {
       
     }else if(this.comprobarOficinas()==false) {
       console.log('colicion Oficina')
+    }else if(this.comprobarRecursos()==false){
+      console.log('colicion Oficina')
     }else{
       this.reunionService.addReunion(this.reunion).subscribe(
         (data:any)=>{
@@ -226,6 +228,55 @@ export class CtrlReunionesComponent implements OnInit {
     console.log(sessionStorage.getItem("admin"))
     this.getReuniones()
     this.getOficinas()
+  }
+
+  comprobarRecursos():Boolean{
+    var retornar=true;
+    this.reuniones.forEach((reun:Reunion)=>{
+      
+      
+      reun.recursos.forEach((re:Recurso)=>{
+        
+     //   console.log('empleados....');
+        var rec :string|Recurso
+        rec= re
+        //console.log(emp);
+        
+        
+        this.reunion.recursos.forEach((recur:Recurso)=>{                 
+          if(reun._id!=this.reunion._id){
+         //   console.log('distintas reuniones.....');
+            
+          if(rec==recur._id ){
+          //  console.log('mismos empleados..');
+           // console.log(reun.fecha);       
+           // console.log(this.reunion.fecha);
+            
+            if(reun.fecha==this.reunion.fecha){
+            //  console.log('comprobando....');
+              
+              if((this.convertirHora(this.reunion.horaInicio).getHours() > this.convertirHora(reun.horaInicio).getHours()   ||
+               (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
+                this.convertirHora(this.reunion.horaInicio).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))  &&
+                (this.convertirHora(this.reunion.horaInicio).getHours() < this.convertirHora(reun.horaFin).getHours() ||
+                  (this.convertirHora(this.reunion.horaInicio).getHours() == this.convertirHora(reun.horaFin).getHours() && 
+                  this.convertirHora(this.reunion.horaInicio).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))){
+                retornar=false;
+              }else if((this.convertirHora(this.reunion.horaFin).getHours() < this.convertirHora(reun.horaFin).getHours()   ||
+               (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaFin).getHours() &&
+                this.convertirHora(this.reunion.horaFin).getMinutes() <= this.convertirHora(reun.horaFin).getMinutes()))  &&
+                 (this.convertirHora(this.reunion.horaFin).getHours() > this.convertirHora(reun.horaInicio).getHours() ||
+                   (this.convertirHora(this.reunion.horaFin).getHours() == this.convertirHora(reun.horaInicio).getHours() &&
+                    this.convertirHora(this.reunion.horaFin).getMinutes() >= this.convertirHora(reun.horaInicio).getMinutes()))){
+                retornar=false;
+              }
+            } 
+          }
+        }
+        });
+      });
+    });
+    return retornar;
   }
 
   comprobarParticipante():Boolean{
