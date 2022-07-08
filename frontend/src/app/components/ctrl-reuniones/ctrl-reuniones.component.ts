@@ -11,6 +11,7 @@ import { ReunionService } from 'src/app/services/reunion.service';
 import {Email} from 'src/app/models/email';
 import { OficinaService } from 'src/app/service/oficina.service';
 import { Oficina } from 'src/app/models/oficina';
+import * as printJS from 'print-js';
 
 @Component({
   selector: 'app-ctrl-reuniones',
@@ -34,6 +35,9 @@ export class CtrlReunionesComponent implements OnInit {
 
   oficina:Oficina
   oficinas: Array<Oficina> = [];
+
+  reunionesPrint:Array<Reunion> = [];
+  reunionesPrint2!:Reunion
 
 
 
@@ -320,4 +324,29 @@ export class CtrlReunionesComponent implements OnInit {
       }
     )
   }
+  //
+  imprimir(){
+    let  reunionesPrint:Array<any> = this.procesarListado(this.reuniones);
+    printJS({printable: this.reuniones, properties: ['titulo','fecha', 'horaInicio', 'horaFin', 'estado',
+   'oficina'], type:
+    'json'})
+    }
+    procesarListado(reuniones: Array<Reunion>):Array<any>{
+    let reunionesProcess:Array<any> = new Array<any>();
+    reuniones.forEach(reu => {
+    let reuTemp = {
+      titulo: reu.titulo,
+   fecha: reu.fecha,
+   horaInicio: reu.horaInicio,
+   horaFin: reu.horaFin,
+   estado: reu.estado,
+   oficina: reu.oficina,
+ 
+    }
+    reunionesProcess.push(reuTemp);
+    });
+    return reunionesProcess;
+  } 
+  
+  
 }
