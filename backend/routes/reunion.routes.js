@@ -7,7 +7,7 @@ router.post('/crear/',reunionCtrl.createReunion);
 router.put('/editar/:id',reunionCtrl.editReunion);
 router.delete('/borrar/:id', reunionCtrl.deleteReunion);
 router.get('/buscar/:id',reunionCtrl.findEmpleado)
-
+router.put('/:id/estado/:estado', reunionCtrl.cambiarEstado);
 
 
 

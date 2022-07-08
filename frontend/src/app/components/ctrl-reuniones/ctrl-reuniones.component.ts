@@ -84,7 +84,7 @@ export class CtrlReunionesComponent implements OnInit {
    var mensaje = `Reunion de caracter: ${this.reunion.caracter}, para la fecha: ${this.reunion.fecha}, desde las: ${this.reunion.horaInicio}, hasta las: ${this.reunion.horaFin}`
     this.reunion.participantes = this.participantesAgregar;
     this.reunion.recursos = this.recursosAgregar;
-    this.reunion.estado = "no realizada";
+    this.reunion.estado = "Pendiente";
 
     if(this.comprobarParticipante()==false) {
       console.log("colicion Participante");
@@ -311,5 +311,13 @@ export class CtrlReunionesComponent implements OnInit {
     tm.setHours(+hour);
     tm.setMinutes(+minute);
     return tm;
+  }
+
+  cambiarEstado(id:string,estado:string){
+    this.reunionService.cambiarEstado(id, estado).subscribe(
+      result =>{
+        console.log(result)
+      }
+    )
   }
 }

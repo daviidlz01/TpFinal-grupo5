@@ -113,5 +113,34 @@
                     </div>
             </form>
         </div>
-        
-        
+    </div>
+</div>      
+<div class=" col-sm-12 col-xs-12 ">
+  <h5>Participantes de la Reunion: </h5>
+  <table class="table-responsive table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Caracter</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Horario</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reu of reuniones">
+        <td>{{reu._id}}</td>
+        <td>{{reu.titulo}}</td>
+        <td>{{reu.caracter}}</td>
+        <td>{{reu.fecha}}</td>
+        <td>{{reu.horaInicio}}/{{reu.horaFin}}</td>
+        <td>{{reu.estado}}</td>
+        <td style="margin: 0" class="btn-group">
+          <button type="button" class="btn btn-info barcode" (click)="cambiarEstado(reu._id,'Realizada')" >Reunion Realizada</button>
+          <button type="button" class="btn btn-danger barcode"  (click)="cambiarEstado(reu._id,'Cancelada')">Reunion Cancelada</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
