@@ -13,3 +13,17 @@ label{
     background: linear-gradient(to right, #FFB142 0%, #FFB142 50%, #fff 100%);
     
     }
+    .padre {
+        background-color: #fafafa;
+        margin: 1rem;
+        padding: 1rem;
+        border: 2px solid #ccc;
+        /* IMPORTANTE */
+        text-align: center;
+        border-radius: 20px;
+      }
+      .madre {
+        margin: 1rem;
+        padding: 1rem;
+        text-align: center;
+      }
