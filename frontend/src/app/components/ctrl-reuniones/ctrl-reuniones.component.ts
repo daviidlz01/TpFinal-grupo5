@@ -93,11 +93,16 @@ export class CtrlReunionesComponent implements OnInit {
 
     if(this.comprobarParticipante()==false) {
       console.log("colicion Participante");
-      
+      document.getElementById("btnIncorrectoP")?.click();
+
     }else if(this.comprobarOficinas()==false) {
       console.log('colicion Oficina')
+      document.getElementById("btnIncorrectoO")?.click();
+
     }else if(this.comprobarRecursos()==false){
-      console.log('colicion Oficina')
+      console.log('colicion recursos')
+      document.getElementById("btnIncorrectoR")?.click();
+
     }else{
       this.reunionService.addReunion(this.reunion).subscribe(
         (data:any)=>{
@@ -115,12 +120,16 @@ export class CtrlReunionesComponent implements OnInit {
       }
     )
       this.agregarNotificacion(mensaje,this.reunion.titulo);
-      document.getElementById("btnResultado")?.click();
+      document.getElementById("btnCorrecto")?.click();
 
     }
   }
     
-
+actualizar(){
+  this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([this.router.url])
+}
   
   getReuniones(){
     this.reunionService.getReuniones().subscribe(
@@ -247,7 +256,7 @@ export class CtrlReunionesComponent implements OnInit {
           if(reun._id!=this.reunion._id){
          //   console.log('distintas reuniones.....');
             
-          if(rec==recur._id ){
+          if(rec==recur._id && recur.tipoRecurso==true){
           //  console.log('mismos empleados..');
            // console.log(reun.fecha);       
            // console.log(this.reunion.fecha);
