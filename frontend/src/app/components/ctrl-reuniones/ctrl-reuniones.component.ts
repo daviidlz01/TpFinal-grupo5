@@ -387,7 +387,7 @@ export class CtrlReunionesComponent implements OnInit {
     printJS({printable: this.reuniones, properties: ['titulo','fecha', 'horaInicio', 'horaFin', 'estado',
    'oficina'], type:
     'json'})
-    }
+  }
     procesarListado(reuniones: Array<Reunion>):Array<any>{
     let reunionesProcess:Array<any> = new Array<any>();
     reuniones.forEach(reu => {

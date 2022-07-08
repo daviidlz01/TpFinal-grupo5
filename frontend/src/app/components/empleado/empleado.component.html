@@ -73,6 +73,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><strong>CERRAR</strong></button>
+                          <button class="btn btn-primary" (click)="imprimir(reu)">cargar PDF</button>
                         </div>
                       </div>
                     </div>
@@ -83,6 +84,7 @@
             <br>
             <br>
       <hr>
+      
       <p><em><strong><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#34ace0"
               class="bi bi-search" viewBox="0 0 16 16">
               <path
@@ -104,7 +106,7 @@
 
         <qrcode  [qrdata]= "'prueba de reunion'" [width]="124" [errorCorrectionLevel]="'M'"></qrcode>
 
-        
+       
 
       </form>
     </div>
@@ -112,4 +114,5 @@
 </div>
 <br>
 <br>
+
 

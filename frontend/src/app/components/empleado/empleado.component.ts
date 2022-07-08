@@ -5,6 +5,7 @@ import { Oficina } from 'src/app/models/oficina';
 import { Recurso } from 'src/app/models/recurso';
 import { Reunion } from 'src/app/models/reunion';
 import { Router } from '@angular/router';
+import * as printJS from 'print-js';
 import { ReunionService } from 'src/app/services/reunion.service';
 
 
@@ -74,6 +75,11 @@ cargarReuniones(empleado: Empleado){
   console.log(this.reuniones)
 }
 
+imprimir(reunion: Reunion){
+  printJS({printable: reunion, properties: ['titulo','fecha', 'horaInicio', 'horaFin', 'estado',
+  'oficina'], type:
+   'json'})
+}
 
 
 }
