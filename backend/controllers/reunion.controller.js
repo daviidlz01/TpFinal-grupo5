@@ -91,4 +91,43 @@ reunionCtrl.cambiarEstado = async (req,res)=>{
     }
  
 }
+reunionCtrl.buscarFecha = async (req,res)=> {
+    try {
+        const fecha = req.query.fecha 
+        var fec = await Reunion.find({fecha:fecha})
+        res.json(fec)
+    }catch (error) {
+    console.log(error)
+    res.status(400).json({
+        status: '0',
+        msg: "Error al buscar "
+    })
+}
+}
+reunionCtrl.buscaroficina = async (req,res)=> {
+    try {
+        const oficina = req.query.oficina 
+        var ofic = await Reunion.find({oficina: oficina})
+        res.json(ofic)
+    }catch (error) {
+    console.log(error)
+    res.status(400).json({
+        status: '0',
+        msg: "Error al buscar "
+    })
+}
+}
+reunionCtrl.buscarEmpleado = async (req,res)=> {
+    try {
+        const participantes = req.query.participantes 
+        var ofic = await Reunion.find({participantes: participantes})
+        res.json(ofic)
+    }catch (error) {
+    console.log(error)
+    res.status(400).json({
+        status: '0',
+        msg: "Error al buscar "
+    })
+}
+}
 module.exports = reunionCtrl
