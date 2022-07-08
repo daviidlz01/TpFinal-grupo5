@@ -36,5 +36,13 @@ export class ReunionService {
     return this._http.get(this.urlBase+"mostrar/",Options)
 
   }
-
+  deleteReunion(id:string):Observable<any>{
+    const Options={
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+    }
+    return this._http.delete(`http://localhost:3000/api/reunion/borrar/${id}`,Options)
+  }
+  
 }
