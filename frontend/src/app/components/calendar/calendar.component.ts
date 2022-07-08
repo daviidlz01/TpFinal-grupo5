@@ -9,7 +9,7 @@ import { CalendarService } from 'src/app/services/calendar.service';
 })
 export class CalendarComponent implements OnInit {
  fromDate: string="";
- toDate:String="";
+ toDate: string="";
 
  event:any =
  {
@@ -46,7 +46,7 @@ end: {
 postEvent(){
   console.log(this.event);
   let fechafrom:Date = new Date(this.fromDate);
-  let fechato:Date = new Date();
+  let fechato:Date = new Date(this.toDate);
 
   this.event.start.dateTime = this.toIsoString(fechafrom);
   this.event.end.dateTime = this.toIsoString(fechato);
