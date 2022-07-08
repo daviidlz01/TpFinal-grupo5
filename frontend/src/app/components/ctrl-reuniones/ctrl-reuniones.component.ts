@@ -353,6 +353,12 @@ export class CtrlReunionesComponent implements OnInit {
     });
     return reunionesProcess;
   } 
-  
+  eliminarReunion(id:string){
+    this.reunionService.deleteReunion(id).subscribe(
+      result =>{
+        console.log(result)
+      }
+    )
+  }
   
 }

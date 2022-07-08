@@ -62,5 +62,14 @@ buscarEmpleado(emplead:string):Observable<any>{
 }
 return this._http.get(this.urlBase+"buscarEmpleado/?participantes="+emplead,Options)
 
+  deleteReunion(id:string):Observable<any>{
+    const Options={
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+    }
+    return this._http.delete(`http://localhost:3000/api/reunion/borrar/${id}`,Options)
+  }
+  
 }
 }

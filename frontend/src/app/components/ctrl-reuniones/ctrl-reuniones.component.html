@@ -140,9 +140,10 @@
         <td>{{reu.fecha}}</td>
         <td>{{reu.horaInicio}}/{{reu.horaFin}}</td>
         <td>{{reu.estado}}</td>
-        <td style="margin: 0" class="btn-group">
-          <button type="button" class="btn btn-info barcode" (click)="cambiarEstado(reu._id,'Realizada')" >Reunion Realizada</button>
-          <button type="button" class="btn btn-danger barcode"  (click)="cambiarEstado(reu._id,'Cancelada')">Reunion Cancelada</button>
+        <td class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example" >
+          <button type="button" class="btn btn-info " (click)="cambiarEstado(reu._id,'Realizada')" routerLink="/reuniones">Reunion Realizada</button>
+          <button type="button" class="btn btn-warning "  (click)="cambiarEstado(reu._id,'Cancelada')" routerLink="/reuniones">Reunion Cancelada</button>
+          <button type="button" class="btn btn-danger "  (click)="eliminarReunion(reu._id)" routerLink="/reuniones">Eliminar Reunion</button>
         </td>
       </tr>
     </tbody>
