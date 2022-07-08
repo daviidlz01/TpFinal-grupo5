@@ -149,19 +149,87 @@
     </tbody>
   </table>
 </div>
+<div>
+    <button id="btnCorrecto" type="button" hidden="true" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#correcto">Button Resultado</button>
+    <button id="btnIncorrectoP" type="button" hidden="true" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#IncorrectoP">Button Resultado</button>
+    <button id="btnIncorrectoO" type="button" hidden="true" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#IncorrectoO">Button Resultado</button>
+    <button id="btnIncorrectoR" type="button" hidden="true" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#IncorrectoR">Button Resultado</button>
+</div>
 
-<div  class="modal fade" id="log" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+<div  class="modal fade" id="correcto" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="logTitle"><strong>CREAR Usuario</strong></h5>
+        <h5 class="modal-title" id="logTitle"><strong>CORRECTO</strong></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <strong>Reunion Creada Correctamente</strong>
-          <label for=""class="form-label"><strong>fecha</strong></label>
-<label>{{reunion.fecha}}</label>
-          <label for=""class="form-label"><strong>CONTRASEÑA</strong></label>
+          <strong>Reunion Creada Correctamente</strong><br>
+          <label for=""class="form-label"><strong>fecha : </strong></label>
+          <label>{{reunion.fecha}}</label>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="actualizar()"><strong>CERRAR</strong></button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div  class="modal fade" id="IncorrectoP" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logTitle"><strong>INCORRECTO</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <strong>Reunion no creada</strong><br>
+          <label for=""class="form-label"><strong>colicion en Participantes </strong></label>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><strong>CERRAR</strong></button>
+        <button type="button" class="btn btn-primary"   data-bs-dismiss="modal" ><strong>GUARDAR</strong></button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div  class="modal fade" id="IncorrectoO" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logTitle"><strong>INCORRECTO</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <strong>Reunion no creada</strong><br>
+          <label for=""class="form-label"><strong>colicion en Oficina </strong></label>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><strong>CERRAR</strong></button>
+        <button type="button" class="btn btn-primary"   data-bs-dismiss="modal" ><strong>GUARDAR</strong></button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div  class="modal fade" id="IncorrectoR" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logTitle"><strong>INCORRECTO</strong></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <strong>Reunion no creada</strong><br>
+          <label for=""class="form-label"><strong>colicion en Recurso </strong></label>
           
       </div>
       <div class="modal-footer">
