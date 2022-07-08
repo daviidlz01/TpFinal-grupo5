@@ -9,7 +9,6 @@ const empleadoSchema = new Schema({
     email :  {type:String,required:true},
     dependencia:{type:String,required:true},
     legajo : {type:String,required:true},
-    leido: {type:Boolean,required:true},
     reuniones:[{type: Schema.Types.ObjectId,ref: reunion}]
 })
 module.exports = mongoose.models.Empleado || mongoose.model('Empleado',empleadoSchema)

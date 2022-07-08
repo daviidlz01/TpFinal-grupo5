@@ -46,7 +46,37 @@
                   <td> {{reu.titulo}} </td>
                   <td> {{reu.caracter}} </td>
                   <td> {{reu.fecha}}</td>
-                  <td><button type="button" class="btn btn-info">+Info</button></td>
+                  <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#log">+Info</button></td>
+                  <div  class="modal fade" id="log" tabindex="-1" aria-labelledby="logTitle" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="logTitle"><strong>{{reu.titulo}}</strong></h5>
+                        </div>
+                        <div class="modal-body">
+                          <h5>ID:</h5>
+                          <p>{{reu._id}}</p>
+                          <h5>Caracter:</h5>
+                          <p>{{reu.caracter}}</p>
+                          <h5>Fecha:</h5>
+                          <p>{{reu.fecha}}</p>
+                          <h5>Horario:</h5>
+                          <p>Desde:{{reu.horaInicio}} Hasta:{{reu.horaFin}}</p>
+                          <h5>ID Participantes:</h5>
+                          <p>{{reu.participantes}}</p>
+                          <h5>ID Oficina:</h5>
+                          <p>{{reu.oficina}}</p>
+                          <h5>ID Recursos:</h5>
+                          <p>{{reu.recursos}}</p>
+                          <h5>Estado:</h5>
+                          <p>{{reu.estado}}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><strong>CERRAR</strong></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </tr>
               </tbody>
             </table>
@@ -82,3 +112,4 @@
 </div>
 <br>
 <br>
+

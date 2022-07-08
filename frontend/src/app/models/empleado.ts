@@ -7,6 +7,5 @@ export class Empleado {
     email!:string;
     dependencia!:string;
     legajo!:string;
-    leido!:boolean
     reuniones!:Array<Reunion>;
 }
